@@ -13,9 +13,9 @@ namespace Money_Manager.Model
         private decimal health;             //здоровье 
         private decimal clothes;            //одежда
         private decimal entertainment;      //развлечения
-        private decimal transport_costs;    //расходы на транспорт
-        private decimal rental_of_property; //аренда жилья
-        private decimal municipal_services; //коммунальные услуги
+        private decimal transportCosts;    //расходы на транспорт
+        private decimal rentingProperties; //аренда жилья
+        private decimal municipalServices; //коммунальные услуги
         private decimal debt;               //долги;
         private decimal other;              //другое
 
@@ -34,7 +34,141 @@ namespace Money_Manager.Model
                 }
             }
         }
+        public decimal Food
+        {
+            get { return food; }
+            set 
+            {
+                if (food > 0) 
+                { 
+                    food = value;
+                }
+                else
+                {
+                    food = 0;
+                }
+            }
+        }
+        public decimal Health
+        {
+            get { return health; }
+            set
+            {
+                if (health > 0)
+                {
+                    health = value;
+                }
+                else
+                {
+                    health = 0;
+                }
+            }
+        }
+        public decimal Clothes
+        {
+            get { return clothes; }
+            set
+            {
+                if (clothes > 0)
+                {
+                    clothes = value;
+                }
+                else
+                {
+                    clothes = 0;
+                }
+            }
+        }
+        public decimal Entertainment
+        {
+            get { return entertainment; }
+            set
+            {
+                if (entertainment > 0)
+                {
+                    entertainment = value;
+                }
+                else
+                {
+                    entertainment = 0;
+                }
+            }
+        }
+        public decimal TransportCosts
+        {
+            get { return transportCosts; }
+            set
+            {
+                if (transportCosts > 0)
+                {
+                    transportCosts = value;
+                }
+                else
+                {
+                    transportCosts = 0;
+                }
+            }
+        }
+        public decimal RentingProperties
+        {
+            get { return rentingProperties; }
+            set
+            {
+                if (rentingProperties > 0)
+                {
+                    rentingProperties = value;
+                }
+                else
+                {
+                    rentingProperties = 0;
+                }
+            }
+        }
+        public decimal MunicipalServices
+        {
+            get { return municipalServices; }
+            set
+            {
+                if (municipalServices > 0)
+                {
+                    municipalServices = value;
+                }
+                else
+                {
+                    municipalServices = 0;
+                }
+            }
+        }
+        public decimal Debt
+        {
+            get { return debt; }
+            set
+            {
+                if (debt > 0)
+                {
+                    debt = value;
+                }
+                else
+                {
+                    debt = 0;
+                }
+            }
+        }
+        public decimal Other
+        {
+            get { return other; }
+            set
+            {
+                if (other > 0)
+                {
+                    other = value;
+                }
+                else
+                {
+                    other = 0;
+                }
+            }
+        }
 
-       
     }
 }
