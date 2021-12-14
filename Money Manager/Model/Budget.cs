@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace Money_Manager.Model
 {
-    internal class Budget
+    internal class Budget //общий бюджет
     {
-        private decimal balance;            //общий бюджет
+        private decimal balance;
+        private DateTime balanceDate;
+
+        public Budget(decimal balance, DateTime dateTime)
+        {
+            Balance = balance;
+            balanceDate = dateTime;
+        }
 
         public decimal Balance
         {
@@ -26,9 +33,10 @@ namespace Money_Manager.Model
             }
         }
 
-        public Budget(decimal balance)
+        public DateTime BalanceDate
         {
-            Balance = balance;
+            get { return balanceDate; }
+            set { balanceDate = value; }
         }
     }
 

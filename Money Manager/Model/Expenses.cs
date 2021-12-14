@@ -17,8 +17,9 @@ namespace Money_Manager.Model
         private decimal municipalServices; //коммунальные услуги
         private decimal debt;               //долги;
         private decimal other;              //другое
+        private DateTime expencesDate;
 
-        public Expenses(decimal food, decimal health, decimal clothes, decimal entertainment, decimal transportCosts, decimal rentingProperties, decimal municipalServices, decimal debt, decimal other)
+        public Expenses(decimal food, decimal health, decimal clothes, decimal entertainment, decimal transportCosts, decimal rentingProperties, decimal municipalServices, decimal debt, decimal other, DateTime dateTime)
         {         
             Food = food;
             Health = health;
@@ -29,6 +30,7 @@ namespace Money_Manager.Model
             MunicipalServices = municipalServices;
             Debt = debt;
             Other = other;
+            ExpencesDate = dateTime;
         }
 
         public decimal Food
@@ -166,6 +168,6 @@ namespace Money_Manager.Model
                 }
             }
         }
-
+        public DateTime ExpencesDate { get => expencesDate; set => expencesDate = value; }
     }
 }
