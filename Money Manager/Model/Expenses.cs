@@ -8,7 +8,6 @@ namespace Money_Manager.Model
 {
     internal class Expenses //Расходы, затраты
     {
-        private decimal balance;            //общий бюджет
         private decimal food;               //еда
         private decimal health;             //здоровье 
         private decimal clothes;            //одежда
@@ -19,21 +18,19 @@ namespace Money_Manager.Model
         private decimal debt;               //долги;
         private decimal other;              //другое
 
-        public decimal Balance  
-        {
-            get { return balance; }
-            set 
-            {
-                if (balance > 0)
-                { 
-                    balance = value; 
-                }
-                else
-                {
-                    balance = 0;
-                }
-            }
+        public Expenses(decimal food, decimal health, decimal clothes, decimal entertainment, decimal transportCosts, decimal rentingProperties, decimal municipalServices, decimal debt, decimal other)
+        {         
+            Food = food;
+            Health = health;
+            Clothes = clothes;
+            Entertainment = entertainment;
+            TransportCosts = transportCosts;
+            RentingProperties = rentingProperties;
+            MunicipalServices = municipalServices;
+            Debt = debt;
+            Other = other;
         }
+
         public decimal Food
         {
             get { return food; }
