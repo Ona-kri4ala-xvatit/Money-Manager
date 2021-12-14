@@ -19,6 +19,20 @@ namespace Money_Manager.Model
         private decimal other;              //другое
         private DateTime expencesDate;
 
+        public Expenses()
+        {
+            food = 0;
+            health = 0;
+            clothes = 0;
+            entertainment = 0;
+            transportCosts = 0;
+            rentingProperties = 0;
+            municipalServices = 0;
+            debt = 0;
+            other = 0;
+            expencesDate = new DateTime();
+        }
+
         public Expenses(decimal food, decimal health, decimal clothes, decimal entertainment, decimal transportCosts, decimal rentingProperties, decimal municipalServices, decimal debt, decimal other, DateTime dateTime)
         {         
             Food = food;

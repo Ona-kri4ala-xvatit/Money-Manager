@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Money_Manager.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,19 @@ namespace Money_Manager.Presenter
 {
     internal class MainFormPresenter
     {
+        private Expenses Expenses = new Expenses();
+        private Budget Budget = new Budget();
+
+        MainFormPresenter()
+        {
+            
+            
+            
+        }
+       
+       
+
+        
+        
     }
 }

@@ -11,6 +11,12 @@ namespace Money_Manager.Model
         private decimal balance;
         private DateTime balanceDate;
 
+        public Budget()
+        {
+            balance = 0;
+            balanceDate = new DateTime();
+        }
+
         public Budget(decimal balance, DateTime dateTime)
         {
             Balance = balance;
