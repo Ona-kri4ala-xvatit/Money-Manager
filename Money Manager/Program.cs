@@ -1,5 +1,5 @@
 using Money_Manager.View;
-
+using Money_Manager.Presenter;
 namespace Money_Manager
 {
     internal static class Program
@@ -11,7 +11,9 @@ namespace Money_Manager
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            MainForm view = new MainForm();
+            MainFormPresenter presenter = new MainFormPresenter(view);
+            Application.Run(view);
         }
     }
 }
