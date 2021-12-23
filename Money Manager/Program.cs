@@ -1,5 +1,6 @@
 using Money_Manager.View;
 using Money_Manager.Presenter;
+
 namespace Money_Manager
 {
     internal static class Program
@@ -13,7 +14,13 @@ namespace Money_Manager
             ApplicationConfiguration.Initialize();
             MainForm view = new MainForm();
             MainFormPresenter presenter = new MainFormPresenter(view);
+            Application.ThreadException += new ThreadExceptionEventHandler(Exception);
             Application.Run(view);
+        }
+
+        static void Exception(object sander, ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.ToString());
         }
     }
 }

@@ -15,15 +15,19 @@ namespace Money_Manager.View
     {  
         public MainForm()
         {
-            InitializeComponent();      
+            InitializeComponent();
+            
         }
 
-       
+
 
         public void ShowdData(decimal value)
         {
             textBox1.Text = value.ToString();
+            
         }
+
+       
     }
 }
 
