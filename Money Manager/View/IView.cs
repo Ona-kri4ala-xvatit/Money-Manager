@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Money_Manager.View
 {
-    internal interface Interface
+    internal interface IView
     {  
-        void ShowBudget(decimal value);
-        void ShowFood(decimal value); 
+        void SetBudget(decimal value);
+        void SetFood(decimal food); 
     }
 }

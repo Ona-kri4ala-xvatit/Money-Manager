@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.BudgetTextBox = new System.Windows.Forms.TextBox();
+            this.BudgetLabel = new System.Windows.Forms.Label();
+            this.FoodLabel = new System.Windows.Forms.Label();
+            this.HealthLabel = new System.Windows.Forms.Label();
+            this.ClothesLabel = new System.Windows.Forms.Label();
+            this.EntertainmentLabel = new System.Windows.Forms.Label();
+            this.TransportConstsLabel = new System.Windows.Forms.Label();
+            this.RentingPropLabel = new System.Windows.Forms.Label();
+            this.MunicipalServLabel = new System.Windows.Forms.Label();
+            this.DebtLabel = new System.Windows.Forms.Label();
+            this.OtherLabel = new System.Windows.Forms.Label();
+            this.RentPropTextBox = new System.Windows.Forms.TextBox();
+            this.MunicipalServTextBox = new System.Windows.Forms.TextBox();
+            this.TransportConstsTextBox = new System.Windows.Forms.TextBox();
+            this.EntertainmentTextBox = new System.Windows.Forms.TextBox();
+            this.ClothesTextBox = new System.Windows.Forms.TextBox();
+            this.HealthTextBox = new System.Windows.Forms.TextBox();
+            this.FoodTextBox = new System.Windows.Forms.TextBox();
+            this.DebtTextBox = new System.Windows.Forms.TextBox();
+            this.OtherTextBox = new System.Windows.Forms.TextBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,198 +55,198 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // BudgetTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 0;
+            this.BudgetTextBox.Location = new System.Drawing.Point(118, 44);
+            this.BudgetTextBox.Name = "BudgetTextBox";
+            this.BudgetTextBox.ReadOnly = true;
+            this.BudgetTextBox.Size = new System.Drawing.Size(100, 23);
+            this.BudgetTextBox.TabIndex = 0;
             // 
-            // label1
+            // BudgetLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(18, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Budget";
+            this.BudgetLabel.AutoSize = true;
+            this.BudgetLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BudgetLabel.Location = new System.Drawing.Point(18, 44);
+            this.BudgetLabel.Name = "BudgetLabel";
+            this.BudgetLabel.Size = new System.Drawing.Size(72, 25);
+            this.BudgetLabel.TabIndex = 1;
+            this.BudgetLabel.Text = "Budget";
             // 
-            // label2
+            // FoodLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(18, 302);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label2.Size = new System.Drawing.Size(54, 35);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Food";
+            this.FoodLabel.AutoSize = true;
+            this.FoodLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FoodLabel.Location = new System.Drawing.Point(18, 302);
+            this.FoodLabel.Name = "FoodLabel";
+            this.FoodLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.FoodLabel.Size = new System.Drawing.Size(54, 35);
+            this.FoodLabel.TabIndex = 2;
+            this.FoodLabel.Text = "Food";
             // 
-            // label3
+            // HealthLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(18, 261);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label3.Size = new System.Drawing.Size(67, 35);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Health";
+            this.HealthLabel.AutoSize = true;
+            this.HealthLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HealthLabel.Location = new System.Drawing.Point(18, 261);
+            this.HealthLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.HealthLabel.Name = "HealthLabel";
+            this.HealthLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.HealthLabel.Size = new System.Drawing.Size(67, 35);
+            this.HealthLabel.TabIndex = 3;
+            this.HealthLabel.Text = "Health";
             // 
-            // label4
+            // ClothesLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(18, 222);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label4.Size = new System.Drawing.Size(75, 35);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Clothes";
+            this.ClothesLabel.AutoSize = true;
+            this.ClothesLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ClothesLabel.Location = new System.Drawing.Point(18, 222);
+            this.ClothesLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.ClothesLabel.Name = "ClothesLabel";
+            this.ClothesLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.ClothesLabel.Size = new System.Drawing.Size(75, 35);
+            this.ClothesLabel.TabIndex = 4;
+            this.ClothesLabel.Text = "Clothes";
             // 
-            // label5
+            // EntertainmentLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(294, 359);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label5.Size = new System.Drawing.Size(131, 35);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Entertainment";
+            this.EntertainmentLabel.AutoSize = true;
+            this.EntertainmentLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.EntertainmentLabel.Location = new System.Drawing.Point(294, 359);
+            this.EntertainmentLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.EntertainmentLabel.Name = "EntertainmentLabel";
+            this.EntertainmentLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.EntertainmentLabel.Size = new System.Drawing.Size(131, 35);
+            this.EntertainmentLabel.TabIndex = 5;
+            this.EntertainmentLabel.Text = "Entertainment";
             // 
-            // label6
+            // TransportConstsLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(294, 319);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label6.Size = new System.Drawing.Size(141, 35);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Transport Costs";
+            this.TransportConstsLabel.AutoSize = true;
+            this.TransportConstsLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TransportConstsLabel.Location = new System.Drawing.Point(294, 319);
+            this.TransportConstsLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.TransportConstsLabel.Name = "TransportConstsLabel";
+            this.TransportConstsLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.TransportConstsLabel.Size = new System.Drawing.Size(141, 35);
+            this.TransportConstsLabel.TabIndex = 6;
+            this.TransportConstsLabel.Text = "Transport Costs";
             // 
-            // label7
+            // RentingPropLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(294, 234);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label7.Size = new System.Drawing.Size(167, 35);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Renting Properties";
+            this.RentingPropLabel.AutoSize = true;
+            this.RentingPropLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RentingPropLabel.Location = new System.Drawing.Point(294, 234);
+            this.RentingPropLabel.Name = "RentingPropLabel";
+            this.RentingPropLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.RentingPropLabel.Size = new System.Drawing.Size(167, 35);
+            this.RentingPropLabel.TabIndex = 7;
+            this.RentingPropLabel.Text = "Renting Properties";
             // 
-            // label8
+            // MunicipalServLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(294, 277);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label8.Size = new System.Drawing.Size(169, 35);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Municipal Services";
+            this.MunicipalServLabel.AutoSize = true;
+            this.MunicipalServLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MunicipalServLabel.Location = new System.Drawing.Point(294, 277);
+            this.MunicipalServLabel.Name = "MunicipalServLabel";
+            this.MunicipalServLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.MunicipalServLabel.Size = new System.Drawing.Size(169, 35);
+            this.MunicipalServLabel.TabIndex = 8;
+            this.MunicipalServLabel.Text = "Municipal Services";
             // 
-            // label9
+            // DebtLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(18, 344);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label9.Size = new System.Drawing.Size(52, 35);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Debt";
+            this.DebtLabel.AutoSize = true;
+            this.DebtLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DebtLabel.Location = new System.Drawing.Point(18, 344);
+            this.DebtLabel.Name = "DebtLabel";
+            this.DebtLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.DebtLabel.Size = new System.Drawing.Size(52, 35);
+            this.DebtLabel.TabIndex = 9;
+            this.DebtLabel.Text = "Debt";
             // 
-            // label10
+            // OtherLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(18, 386);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label10.Size = new System.Drawing.Size(60, 35);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Other";
+            this.OtherLabel.AutoSize = true;
+            this.OtherLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OtherLabel.Location = new System.Drawing.Point(18, 386);
+            this.OtherLabel.Name = "OtherLabel";
+            this.OtherLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.OtherLabel.Size = new System.Drawing.Size(60, 35);
+            this.OtherLabel.TabIndex = 10;
+            this.OtherLabel.Text = "Other";
             // 
-            // textBox2
+            // RentPropTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(467, 246);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 11;
+            this.RentPropTextBox.Location = new System.Drawing.Point(467, 246);
+            this.RentPropTextBox.Name = "RentPropTextBox";
+            this.RentPropTextBox.ReadOnly = true;
+            this.RentPropTextBox.Size = new System.Drawing.Size(100, 23);
+            this.RentPropTextBox.TabIndex = 11;
             // 
-            // textBox3
+            // MunicipalServTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(467, 289);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 12;
+            this.MunicipalServTextBox.Location = new System.Drawing.Point(467, 289);
+            this.MunicipalServTextBox.Name = "MunicipalServTextBox";
+            this.MunicipalServTextBox.ReadOnly = true;
+            this.MunicipalServTextBox.Size = new System.Drawing.Size(100, 23);
+            this.MunicipalServTextBox.TabIndex = 12;
             // 
-            // textBox4
+            // TransportConstsTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(467, 331);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
-            this.textBox4.TabIndex = 13;
+            this.TransportConstsTextBox.Location = new System.Drawing.Point(467, 331);
+            this.TransportConstsTextBox.Name = "TransportConstsTextBox";
+            this.TransportConstsTextBox.ReadOnly = true;
+            this.TransportConstsTextBox.Size = new System.Drawing.Size(100, 23);
+            this.TransportConstsTextBox.TabIndex = 13;
             // 
-            // textBox5
+            // EntertainmentTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(467, 371);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(100, 23);
-            this.textBox5.TabIndex = 14;
+            this.EntertainmentTextBox.Location = new System.Drawing.Point(467, 371);
+            this.EntertainmentTextBox.Name = "EntertainmentTextBox";
+            this.EntertainmentTextBox.ReadOnly = true;
+            this.EntertainmentTextBox.Size = new System.Drawing.Size(100, 23);
+            this.EntertainmentTextBox.TabIndex = 14;
             // 
-            // textBox6
+            // ClothesTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(105, 234);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(100, 23);
-            this.textBox6.TabIndex = 15;
+            this.ClothesTextBox.Location = new System.Drawing.Point(105, 234);
+            this.ClothesTextBox.Name = "ClothesTextBox";
+            this.ClothesTextBox.ReadOnly = true;
+            this.ClothesTextBox.Size = new System.Drawing.Size(100, 23);
+            this.ClothesTextBox.TabIndex = 15;
             // 
-            // textBox7
+            // HealthTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(105, 273);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(100, 23);
-            this.textBox7.TabIndex = 16;
+            this.HealthTextBox.Location = new System.Drawing.Point(105, 273);
+            this.HealthTextBox.Name = "HealthTextBox";
+            this.HealthTextBox.ReadOnly = true;
+            this.HealthTextBox.Size = new System.Drawing.Size(100, 23);
+            this.HealthTextBox.TabIndex = 16;
             // 
-            // textBox8
+            // FoodTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(105, 314);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(100, 23);
-            this.textBox8.TabIndex = 17;
+            this.FoodTextBox.Location = new System.Drawing.Point(105, 314);
+            this.FoodTextBox.Name = "FoodTextBox";
+            this.FoodTextBox.ReadOnly = true;
+            this.FoodTextBox.Size = new System.Drawing.Size(100, 23);
+            this.FoodTextBox.TabIndex = 17;
             // 
-            // textBox9
+            // DebtTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(105, 356);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(100, 23);
-            this.textBox9.TabIndex = 18;
+            this.DebtTextBox.Location = new System.Drawing.Point(105, 356);
+            this.DebtTextBox.Name = "DebtTextBox";
+            this.DebtTextBox.ReadOnly = true;
+            this.DebtTextBox.Size = new System.Drawing.Size(100, 23);
+            this.DebtTextBox.TabIndex = 18;
             // 
-            // textBox10
+            // OtherTextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(105, 398);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(100, 23);
-            this.textBox10.TabIndex = 19;
+            this.OtherTextBox.Location = new System.Drawing.Point(105, 398);
+            this.OtherTextBox.Name = "OtherTextBox";
+            this.OtherTextBox.ReadOnly = true;
+            this.OtherTextBox.Size = new System.Drawing.Size(100, 23);
+            this.OtherTextBox.TabIndex = 19;
             // 
             // monthCalendar1
             // 
@@ -276,7 +276,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // MainForm
@@ -285,29 +285,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 447);
             this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.OtherTextBox);
+            this.Controls.Add(this.DebtTextBox);
+            this.Controls.Add(this.FoodTextBox);
+            this.Controls.Add(this.HealthTextBox);
+            this.Controls.Add(this.ClothesTextBox);
+            this.Controls.Add(this.EntertainmentTextBox);
+            this.Controls.Add(this.TransportConstsTextBox);
+            this.Controls.Add(this.MunicipalServTextBox);
+            this.Controls.Add(this.RentPropTextBox);
+            this.Controls.Add(this.OtherLabel);
+            this.Controls.Add(this.DebtLabel);
+            this.Controls.Add(this.MunicipalServLabel);
+            this.Controls.Add(this.RentingPropLabel);
+            this.Controls.Add(this.TransportConstsLabel);
+            this.Controls.Add(this.EntertainmentLabel);
+            this.Controls.Add(this.ClothesLabel);
+            this.Controls.Add(this.HealthLabel);
+            this.Controls.Add(this.FoodLabel);
+            this.Controls.Add(this.BudgetLabel);
+            this.Controls.Add(this.BudgetTextBox);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Money Manager";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -317,26 +319,26 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
-        private TextBox textBox8;
-        private TextBox textBox9;
-        private TextBox textBox10;
+        private TextBox BudgetTextBox;
+        private Label BudgetLabel;
+        private Label FoodLabel;
+        private Label HealthLabel;
+        private Label ClothesLabel;
+        private Label EntertainmentLabel;
+        private Label TransportConstsLabel;
+        private Label RentingPropLabel;
+        private Label MunicipalServLabel;
+        private Label DebtLabel;
+        private Label OtherLabel;
+        private TextBox RentPropTextBox;
+        private TextBox MunicipalServTextBox;
+        private TextBox TransportConstsTextBox;
+        private TextBox EntertainmentTextBox;
+        private TextBox ClothesTextBox;
+        private TextBox HealthTextBox;
+        private TextBox FoodTextBox;
+        private TextBox DebtTextBox;
+        private TextBox OtherTextBox;
         private MonthCalendar monthCalendar1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;

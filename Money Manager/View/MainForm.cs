@@ -11,7 +11,7 @@ using Money_Manager.Presenter;
 
 namespace Money_Manager.View
 {
-    public partial class MainForm : Form, Interface
+    public partial class MainForm : Form, IView
     {  
         public MainForm()
         {
@@ -19,15 +19,23 @@ namespace Money_Manager.View
 
         }
 
-        public void ShowBudget(decimal value)
+        public void SetBudget(decimal value)
         {
-            textBox1.Text = value.ToString();
-          
+            BudgetTextBox.Text = value.ToString();
+            
         }
 
-        public void ShowFood(decimal value)
+        public void SetFood(decimal value)
         {
-           textBox8.Text = value.ToString();
+            RentPropTextBox.Text = value.ToString();
+            MunicipalServTextBox.Text = value.ToString();
+            TransportConstsTextBox.Text = value.ToString();
+            EntertainmentTextBox.Text = value.ToString();
+            ClothesTextBox.Text = value.ToString();
+            HealthTextBox.Text = value.ToString();
+            FoodTextBox.Text = value.ToString();
+            DebtTextBox.Text = value.ToString();
+            OtherTextBox.Text = value.ToString();
         }
     }
 }

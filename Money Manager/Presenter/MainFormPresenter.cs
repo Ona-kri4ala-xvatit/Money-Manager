@@ -12,23 +12,23 @@ namespace Money_Manager.Presenter
     {
         private Expenses expenses = new Expenses();
         private Budget budget = new Budget();
-        private Interface view;
+        private IView view;
 
-        public MainFormPresenter(Interface IView)
+        public MainFormPresenter(IView Iview)
         {
-            view = IView;
+            view = Iview;
             GetBudget();
-            GetFood();
+            GetExpenses();
         }
 
         private void GetBudget()
         {
-            view.ShowBudget(budget.Balance);
+            view.SetBudget(budget.Balance);
         }
 
-        private void GetFood()
+        private void GetExpenses()
         {
-            view.ShowFood(expenses.Food);
+            view.SetFood(expenses.Food);
         }
         
 
