@@ -25,17 +25,49 @@ namespace Money_Manager.View
             
         }
 
+        public void SetClothes(decimal value)
+        {
+            ClothesTextBox.Text = value.ToString();
+        }
+
+        public void SetDebt(decimal value)
+        {
+            DebtTextBox.Text = value.ToString();
+        }
+
+        public void SetEntertainment(decimal value)
+        {
+            EntertainmentTextBox.Text = value.ToString();
+        }
+
         public void SetFood(decimal value)
         {
-            RentPropTextBox.Text = value.ToString();
-            MunicipalServTextBox.Text = value.ToString();
-            TransportConstsTextBox.Text = value.ToString();
-            EntertainmentTextBox.Text = value.ToString();
-            ClothesTextBox.Text = value.ToString();
-            HealthTextBox.Text = value.ToString();
             FoodTextBox.Text = value.ToString();
-            DebtTextBox.Text = value.ToString();
+        }
+
+        public void SetHealth(decimal value)
+        {
+           HealthTextBox.Text = value.ToString();   
+        }
+
+        public void SetMunicipalService(decimal value)
+        {
+            MunicipalServTextBox.Text = value.ToString();
+        }
+
+        public void SetOther(decimal value)
+        {
             OtherTextBox.Text = value.ToString();
+        }
+
+        public void SetRentingProperties(decimal value)
+        {
+            RentPropTextBox.Text = value.ToString();
+        }
+
+        public void SetTransportCosts(decimal value)
+        {
+            TransportConstsTextBox.Text = value.ToString();
         }
     }
 }

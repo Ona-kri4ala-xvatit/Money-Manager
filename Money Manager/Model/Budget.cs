@@ -13,7 +13,7 @@ namespace Money_Manager.Model
 
         public Budget()
         {
-            balance = 0;
+            balance = 800;
             balanceDate = new DateTime();
         }
 

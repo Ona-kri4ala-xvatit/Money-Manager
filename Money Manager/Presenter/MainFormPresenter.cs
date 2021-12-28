@@ -18,7 +18,15 @@ namespace Money_Manager.Presenter
         {
             view = Iview;
             GetBudget();
-            GetExpenses();
+            GetFood();
+            GetHealth();
+            GetClothes();
+            GetDebt();
+            GetOther();
+            GetEntertainment();
+            GetTransportCosts();
+            GetMunicipalService();
+            GetRentingProperties();
         }
 
         private void GetBudget()
@@ -26,12 +34,50 @@ namespace Money_Manager.Presenter
             view.SetBudget(budget.Balance);
         }
 
-        private void GetExpenses()
+        private void GetFood()
         {
             view.SetFood(expenses.Food);
         }
-        
 
+        private void GetHealth()
+        {
+            view.SetHealth(expenses.Health);
+        }
+        
+        private void GetClothes()
+        {
+            view.SetClothes(expenses.Clothes);
+        }
+
+        private void GetDebt()
+        {
+            view.SetDebt(expenses.Debt);
+        }
+
+        private void GetOther()
+        {
+            view.SetOther(expenses.Other);
+        }
+        
+        private void GetEntertainment()
+        {
+            view.SetEntertainment(expenses.Entertainment);
+        }
+
+        private void GetTransportCosts()
+        {
+            view.SetTransportCosts(expenses.TransportCosts);
+        }
+
+        private void GetMunicipalService()
+        {
+            view.SetMunicipalService(expenses.MunicipalServices);
+        }
+
+        private void GetRentingProperties()
+        {
+            view.SetRentingProperties(expenses.RentingProperties);  
+        }
 
         
         
