@@ -16,18 +16,19 @@ namespace Money_Manager.View
         public MainForm()
         {
             InitializeComponent();
-            
+
         }
 
-
-
-        public void ShowdData(decimal value)
+        public void ShowBudget(decimal value)
         {
             textBox1.Text = value.ToString();
-            
+          
         }
 
-       
+        public void ShowFood(decimal value)
+        {
+           textBox8.Text = value.ToString();
+        }
     }
 }
 

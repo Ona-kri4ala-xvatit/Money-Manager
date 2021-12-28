@@ -14,15 +14,21 @@ namespace Money_Manager.Presenter
         private Budget budget = new Budget();
         private Interface view;
 
-        public MainFormPresenter(Interface _view)
+        public MainFormPresenter(Interface IView)
         {
-            view = _view;
-            sd();
+            view = IView;
+            GetBudget();
+            GetFood();
         }
 
-        private void sd()
+        private void GetBudget()
         {
-            view.ShowdData(budget.Balance);
+            view.ShowBudget(budget.Balance);
+        }
+
+        private void GetFood()
+        {
+            view.ShowFood(expenses.Food);
         }
         
 

@@ -8,6 +8,7 @@ namespace Money_Manager.View
 {
     internal interface Interface
     {  
-        void ShowdData(decimal value);
+        void ShowBudget(decimal value);
+        void ShowFood(decimal value); 
     }
 }
