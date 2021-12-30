@@ -8,6 +8,8 @@ namespace Money_Manager.View
 {
     internal interface IView
     {  
-        void SetBudget(decimal value, DateTime date);
+        decimal InputBudget { get; }
+        event EventHandler<EventArgs> GetBudget;
+        void SetBudget(decimal value);
     }
 }

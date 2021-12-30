@@ -11,31 +11,32 @@ namespace Money_Manager.Model
         private decimal balance;
         private DateTime balanceDate;
 
-        public Budget()
-        {
-            balance = 0;
-            balanceDate = new DateTime(2022,01,12);
-        }
+        //public Budget()
+        //{
+        //    balance = 0;
+        //    balanceDate = new DateTime();
+        //}
 
-        public Budget(decimal balance, DateTime dateTime)
-        {
-            Balance = balance;
-            balanceDate = dateTime;
-        }
+        //public Budget(decimal balance, DateTime dateTime)
+        //{
+        //    Balance = balance;
+        //    balanceDate = dateTime;
+        //}
 
         public decimal Balance
         {
             get { return balance; }
             set
             {
-                if (balance > 0)
-                {
-                    balance = value;
-                }
-                else
-                {
-                    balance = 0;
-                }
+                balance = value;
+                //if (balance > 0)
+                //{
+                //    balance = value;
+                //}
+                //else
+                //{
+                //    balance = 0;
+                //}
             }
         }
 

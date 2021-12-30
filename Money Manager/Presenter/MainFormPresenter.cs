@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Money_Manager.Model;
+﻿using Money_Manager.Model;
 using Money_Manager.View;
 
 namespace Money_Manager.Presenter
@@ -17,15 +12,22 @@ namespace Money_Manager.Presenter
         public MainFormPresenter(IView Iview)
         {
             view = Iview;
-            GetBudget();
+            view.GetBudget += new EventHandler<EventArgs>(Presenter_SetBudget);
+            RefreshBudget();
         }
 
-        private void GetBudget()
+
+        private void Presenter_SetBudget(object sender, EventArgs e)
         {
-            view.SetBudget(budget.Balance, budget.BalanceDate);
-          
+            budget.Balance = view.InputBudget;
+            RefreshBudget();
         }
-  
-        
+        private void RefreshBudget()
+        {
+            view.SetBudget(budget.Balance);
+
+        }
+
+
     }
 }
