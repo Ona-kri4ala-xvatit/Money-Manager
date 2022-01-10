@@ -33,13 +33,18 @@
             this.SetBudgetTextBox = new System.Windows.Forms.TextBox();
             this.SetBudgetLabel = new System.Windows.Forms.Label();
             this.SetBudgetButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newMonthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BudgetTextBox
             // 
             this.BudgetTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BudgetTextBox.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.BudgetTextBox.Location = new System.Drawing.Point(657, 41);
+            this.BudgetTextBox.Location = new System.Drawing.Point(653, 32);
             this.BudgetTextBox.Name = "BudgetTextBox";
             this.BudgetTextBox.Size = new System.Drawing.Size(72, 33);
             this.BudgetTextBox.TabIndex = 0;
@@ -48,11 +53,11 @@
             // BudgetLabel
             // 
             this.BudgetLabel.AutoSize = true;
-            this.BudgetLabel.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BudgetLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BudgetLabel.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.BudgetLabel.Location = new System.Drawing.Point(576, 50);
+            this.BudgetLabel.Location = new System.Drawing.Point(575, 40);
             this.BudgetLabel.Name = "BudgetLabel";
-            this.BudgetLabel.Size = new System.Drawing.Size(75, 24);
+            this.BudgetLabel.Size = new System.Drawing.Size(72, 25);
             this.BudgetLabel.TabIndex = 1;
             this.BudgetLabel.Text = "Budget";
             // 
@@ -66,9 +71,10 @@
             // SetBudgetLabel
             // 
             this.SetBudgetLabel.AutoSize = true;
-            this.SetBudgetLabel.Location = new System.Drawing.Point(308, 168);
+            this.SetBudgetLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SetBudgetLabel.Location = new System.Drawing.Point(165, 162);
             this.SetBudgetLabel.Name = "SetBudgetLabel";
-            this.SetBudgetLabel.Size = new System.Drawing.Size(64, 15);
+            this.SetBudgetLabel.Size = new System.Drawing.Size(103, 25);
             this.SetBudgetLabel.TabIndex = 3;
             this.SetBudgetLabel.Text = "Set Budget";
             // 
@@ -82,21 +88,56 @@
             this.SetBudgetButton.UseVisualStyleBackColor = true;
             this.SetBudgetButton.Click += new System.EventHandler(this.SetBudgetButton_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(737, 28);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newMonthToolStripMenuItem,
+            this.toolStripMenuItem1});
+            this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newMonthToolStripMenuItem
+            // 
+            this.newMonthToolStripMenuItem.Name = "newMonthToolStripMenuItem";
+            this.newMonthToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.newMonthToolStripMenuItem.Text = "New Month";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SlateGray;
+            this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(737, 472);
             this.Controls.Add(this.SetBudgetButton);
             this.Controls.Add(this.SetBudgetLabel);
             this.Controls.Add(this.SetBudgetTextBox);
             this.Controls.Add(this.BudgetLabel);
             this.Controls.Add(this.BudgetTextBox);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Money Manager";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +150,9 @@
         private TextBox SetBudgetTextBox;
         protected internal Label SetBudgetLabel;
         private Button SetBudgetButton;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem newMonthToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem1;
     }
 }

@@ -26,18 +26,7 @@ namespace Money_Manager.Model
         public decimal Balance
         {
             get { return balance; }
-            set
-            {
-                balance = value;
-                //if (balance > 0)
-                //{
-                //    balance = value;
-                //}
-                //else
-                //{
-                //    balance = 0;
-                //}
-            }
+            set { balance = value; }
         }
 
         public DateTime BalanceDate
