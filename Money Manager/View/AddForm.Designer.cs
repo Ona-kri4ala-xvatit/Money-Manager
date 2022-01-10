@@ -34,9 +34,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(543, 457);
             this.Name = "AddForm";
-            this.Text = "Add Expenses";
+            this.Text = "Budget";
             this.ResumeLayout(false);
 
         }
