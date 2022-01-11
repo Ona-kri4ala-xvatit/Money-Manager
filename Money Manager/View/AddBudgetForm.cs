@@ -12,15 +12,12 @@
             get { return Convert.ToDecimal(SetBudgetTextBox.Text); }
         }
 
-        public event EventHandler<EventArgs>? GetBudget;
 
+        public event EventHandler<EventArgs> GetBudget;
         private void SetBudgetButton_Click(object sender, EventArgs e)
         {
-            if (GetBudget != null)
-            {
-                GetBudget(this, EventArgs.Empty);
-            }
-            this.Close();
+          
+            GetBudget?.Invoke(this, EventArgs.Empty);
         }
 
     }

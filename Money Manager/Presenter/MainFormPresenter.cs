@@ -19,7 +19,7 @@ namespace Money_Manager.Presenter
             RefreshBudget();
         }
 
-        private void Presenter_GetBudget(object sender, EventArgs e)
+        private void Presenter_GetBudget(object? sender, EventArgs e)
         {
             budget.Balance = viewInputBudget.InputBudget;
             RefreshBudget();

@@ -16,6 +16,7 @@
         private void newMonthToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addBudgetForm addBudgetForm = new addBudgetForm();
+            
             addBudgetForm.ShowDialog();
         }
     }
