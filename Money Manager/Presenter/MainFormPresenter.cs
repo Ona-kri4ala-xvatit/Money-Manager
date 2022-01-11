@@ -7,25 +7,26 @@ namespace Money_Manager.Presenter
     {
         private Expenses expenses = new Expenses();
         private Budget budget = new Budget();
-        private IView view;
+        private IViewDisplayBudget viewDisplayBudget;
+        private IViewInputBudget viewInputBudget;
 
-        public MainFormPresenter(IView Iview)
+
+        public MainFormPresenter(IViewDisplayBudget ViewDisplayBudget, IViewInputBudget ViewInputBudget)
         {
-            view = Iview;
-            view.GetBudget += new EventHandler<EventArgs>(Presenter_SetBudget);
+            viewInputBudget = ViewInputBudget;
+            viewDisplayBudget = ViewDisplayBudget;
+            viewInputBudget.GetBudget += new EventHandler<EventArgs>(Presenter_GetBudget);
             RefreshBudget();
         }
 
-
-        private void Presenter_SetBudget(object sender, EventArgs e)
+        private void Presenter_GetBudget(object sender, EventArgs e)
         {
-            budget.Balance = view.InputBudget;
+            budget.Balance = viewInputBudget.InputBudget;
             RefreshBudget();
         }
         private void RefreshBudget()
         {
-            view.SetBudget(budget.Balance);
-
+            viewDisplayBudget.DisplayBudget(budget.Balance);
         }
 
 

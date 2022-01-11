@@ -12,10 +12,11 @@ namespace Money_Manager
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            MainForm view = new MainForm();
-            MainFormPresenter presenter = new MainFormPresenter(view);
+            MainForm mainForm = new MainForm();
+            addBudgetForm addBudgetForm = new addBudgetForm();
+            MainFormPresenter presenter = new MainFormPresenter(mainForm, addBudgetForm);
             Application.ThreadException += new ThreadExceptionEventHandler(Exception);
-            Application.Run(view);
+            Application.Run(mainForm);
         }
 
         static void Exception(object sander, ThreadExceptionEventArgs e)

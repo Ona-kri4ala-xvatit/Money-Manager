@@ -30,9 +30,6 @@
         {
             this.BudgetTextBox = new System.Windows.Forms.TextBox();
             this.BudgetLabel = new System.Windows.Forms.Label();
-            this.SetBudgetTextBox = new System.Windows.Forms.TextBox();
-            this.SetBudgetLabel = new System.Windows.Forms.Label();
-            this.SetBudgetButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newMonthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +43,7 @@
             this.BudgetTextBox.ForeColor = System.Drawing.SystemColors.MenuText;
             this.BudgetTextBox.Location = new System.Drawing.Point(653, 32);
             this.BudgetTextBox.Name = "BudgetTextBox";
+            this.BudgetTextBox.ReadOnly = true;
             this.BudgetTextBox.Size = new System.Drawing.Size(72, 33);
             this.BudgetTextBox.TabIndex = 0;
             this.BudgetTextBox.TabStop = false;
@@ -60,33 +58,6 @@
             this.BudgetLabel.Size = new System.Drawing.Size(72, 25);
             this.BudgetLabel.TabIndex = 1;
             this.BudgetLabel.Text = "Budget";
-            // 
-            // SetBudgetTextBox
-            // 
-            this.SetBudgetTextBox.Location = new System.Drawing.Point(308, 191);
-            this.SetBudgetTextBox.Name = "SetBudgetTextBox";
-            this.SetBudgetTextBox.Size = new System.Drawing.Size(100, 23);
-            this.SetBudgetTextBox.TabIndex = 2;
-            // 
-            // SetBudgetLabel
-            // 
-            this.SetBudgetLabel.AutoSize = true;
-            this.SetBudgetLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SetBudgetLabel.Location = new System.Drawing.Point(165, 162);
-            this.SetBudgetLabel.Name = "SetBudgetLabel";
-            this.SetBudgetLabel.Size = new System.Drawing.Size(103, 25);
-            this.SetBudgetLabel.TabIndex = 3;
-            this.SetBudgetLabel.Text = "Set Budget";
-            // 
-            // SetBudgetButton
-            // 
-            this.SetBudgetButton.Location = new System.Drawing.Point(308, 220);
-            this.SetBudgetButton.Name = "SetBudgetButton";
-            this.SetBudgetButton.Size = new System.Drawing.Size(100, 31);
-            this.SetBudgetButton.TabIndex = 4;
-            this.SetBudgetButton.Text = "Set Budget";
-            this.SetBudgetButton.UseVisualStyleBackColor = true;
-            this.SetBudgetButton.Click += new System.EventHandler(this.SetBudgetButton_Click);
             // 
             // menuStrip1
             // 
@@ -111,23 +82,21 @@
             // newMonthToolStripMenuItem
             // 
             this.newMonthToolStripMenuItem.Name = "newMonthToolStripMenuItem";
-            this.newMonthToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.newMonthToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.newMonthToolStripMenuItem.Text = "New Month";
+            this.newMonthToolStripMenuItem.Click += new System.EventHandler(this.newMonthToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSlateGray;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(737, 472);
-            this.Controls.Add(this.SetBudgetButton);
-            this.Controls.Add(this.SetBudgetLabel);
-            this.Controls.Add(this.SetBudgetTextBox);
             this.Controls.Add(this.BudgetLabel);
             this.Controls.Add(this.BudgetTextBox);
             this.Controls.Add(this.menuStrip1);
@@ -147,9 +116,6 @@
 
         private TextBox BudgetTextBox;
         private Label BudgetLabel;
-        private TextBox SetBudgetTextBox;
-        protected internal Label SetBudgetLabel;
-        private Button SetBudgetButton;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem newMonthToolStripMenuItem;

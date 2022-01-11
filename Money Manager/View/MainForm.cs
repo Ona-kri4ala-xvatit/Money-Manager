@@ -1,6 +1,6 @@
 ﻿namespace Money_Manager.View
 {
-    public partial class MainForm : Form, IView
+    public partial class MainForm : Form, IViewDisplayBudget
     {
         public MainForm()
         {
@@ -8,24 +8,15 @@
             //exitToolStripMenuItem.Click += (s,e) => { this.Close(); };
         }
 
-        public void SetBudget(decimal value)
+        public void DisplayBudget(decimal value)
         {
             BudgetTextBox.Text = value.ToString("N2");
         }
 
-        public decimal InputBudget 
+        private void newMonthToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            get { return Convert.ToDecimal(SetBudgetTextBox.Text); }
-        }
-
-        public event EventHandler<EventArgs>? GetBudget;
-
-        private void SetBudgetButton_Click(object sender, EventArgs e)
-        {
-            if (GetBudget != null)
-            {
-                GetBudget(this, EventArgs.Empty);
-            }
+            addBudgetForm addBudgetForm = new addBudgetForm();
+            addBudgetForm.ShowDialog();
         }
     }
 }
