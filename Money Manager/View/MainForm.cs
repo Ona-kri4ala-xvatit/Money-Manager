@@ -1,22 +1,25 @@
-﻿namespace Money_Manager.View
+﻿using Money_Manager.Presenter;
+
+namespace Money_Manager.View
 {
     public partial class MainForm : Form, IViewDisplayBudget
     {
         public MainForm()
         {
             InitializeComponent();
-            //exitToolStripMenuItem.Click += (s,e) => { this.Close(); };
+            //exitToolStripMenuItem.Click += (s,e) => { Close(); };
+            
         }
 
         public void DisplayBudget(decimal value)
         {
-            BudgetTextBox.Text = value.ToString("N2");
+            labelDisplayBudget.Text = value.ToString("N2");
         }
 
         private void newMonthToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addBudgetForm addBudgetForm = new addBudgetForm();
-            
+            AddBudgetForm addBudgetForm = new();
+            AddBudgetFormPresenter presenter = new(addBudgetForm);
             addBudgetForm.ShowDialog();
         }
     }
