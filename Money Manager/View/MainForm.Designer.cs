@@ -90,9 +90,9 @@
             this.labelDisplayBudget.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDisplayBudget.Location = new System.Drawing.Point(0, 0);
             this.labelDisplayBudget.Name = "labelDisplayBudget";
-            this.labelDisplayBudget.Size = new System.Drawing.Size(92, 25);
+            this.labelDisplayBudget.Size = new System.Drawing.Size(81, 25);
             this.labelDisplayBudget.TabIndex = 6;
-            this.labelDisplayBudget.Text = "LBBudget";
+            this.labelDisplayBudget.Text = "LBudget";
             // 
             // budgetPanel
             // 
