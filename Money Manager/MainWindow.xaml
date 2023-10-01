@@ -1,0 +1,110 @@
+﻿<Window x:Class="Money_Manager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Money_Manager" 
+        xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Height="600" Width="1000" AllowsTransparency="True" WindowStyle="None"        
+        WindowStartupLocation="CenterScreen" Background="Transparent">
+    
+    <Grid MouseDown="Grid_MouseDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Width="180" CornerRadius="15 0 0 15">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#a2d2ff" Offset="0"/>
+                        <GradientStop Color="#cae9ff" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <Border Grid.Column="1" CornerRadius="0 15 15 0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#bbdefb" Offset="0"/>
+                        <GradientStop Color="#e3f2fd" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <!--<ColumnDefinition Width="300"/>-->
+            </Grid.ColumnDefinitions>
+
+            <!-- Main menu -->
+            <StackPanel Width="200">
+                <StackPanel Orientation="Vertical" Margin="0 30 20 60" HorizontalAlignment="Center">
+                    <Border CornerRadius="50" Background="#443f5e" Width="40" Height="40">
+                        <icon:PackIconMaterial Kind="HandCoin" Height="25" Foreground="#e8f1f2" Margin="0 0 0 0"
+                                            VerticalAlignment="Center" HorizontalAlignment="Center" Width="40"/>
+                    </Border>
+                    <TextBlock Text="Money Manager" Foreground="#443f5e" FontSize="18" Margin="10" FontWeight="SemiBold"/>
+                </StackPanel>
+
+                <Button Style="{StaticResource activeMenuButton}" Command="{Binding OverviewCommand}" Width="170">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="Finance" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Overview" Style="{StaticResource menuButtonText}" />
+                        </StackPanel>
+                        <icon:PackIconMaterial Kind="ChevronRight" HorizontalAlignment="Right" Visibility="Visible"
+                                        Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}" Command="{Binding IncomeCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="ArrowRight" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Income" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="ArrowLeft" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Expenses" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="Wallet" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Accounts" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="Cart" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Categories" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Separator Background="#9894b0" Width="100" Margin="0 10 20 0 "></Separator>
+
+                <Button Style="{StaticResource menuButton}" Click="ExitButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="ExitToApp" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Exit" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <!-- User controls -->
+            <Grid Grid.Column="1">
+                <ContentControl Content="{Binding ActiveViewModel}"></ContentControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
