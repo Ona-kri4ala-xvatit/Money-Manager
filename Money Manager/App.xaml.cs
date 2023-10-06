@@ -37,10 +37,12 @@ namespace Money_Manager
             //Container.RegisterSingleton<IProductStatusRepository, ProductStatusDapperRepository>();
             Container.RegisterSingleton<IMessenger, Messenger>();
 
+            Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<OverviewViewModel>();
             Container.RegisterSingleton<IncomeViewModel>();
-            //Container.RegisterSingleton<CategoriesViewModel>();
-            Container.RegisterSingleton<MainViewModel>();
+            Container.RegisterSingleton<ExpensesViewModel>();
+            Container.RegisterSingleton<AccountsViewModel>();
+            Container.RegisterSingleton<CategoriesViewModel>();
 
             Container.Verify();
         }

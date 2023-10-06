@@ -70,21 +70,21 @@
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton}" Command="{Binding ExpensesCommand}">
                     <StackPanel Orientation="Horizontal">
                         <icon:PackIconMaterial Kind="ArrowLeft" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Expenses" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton}" Command="{Binding AccountsCommand}">
                     <StackPanel Orientation="Horizontal">
                         <icon:PackIconMaterial Kind="Wallet" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Accounts" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource menuButton}">
+                <Button Style="{StaticResource menuButton}" Command="{Binding CategoriesCommand}">
                     <StackPanel Orientation="Horizontal">
                         <icon:PackIconMaterial Kind="Cart" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Categories" Style="{StaticResource menuButtonText}"/>

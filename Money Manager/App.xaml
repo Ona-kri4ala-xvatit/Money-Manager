@@ -16,13 +16,17 @@
             <v:IncomeView/>
         </DataTemplate>
 
-        <!--<DataTemplate DataType="{x:Type vm:OverviewViewModel}">
-            <v:OverviewView/>
+        <DataTemplate DataType="{x:Type vm:ExpensesViewModel}">
+            <v:ExpensesView/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type vm:OverviewViewModel}">
-            <v:OverviewView/>
-        </DataTemplate>-->
+        <DataTemplate DataType="{x:Type vm:AccountsViewModel}">
+            <v:AccountsView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:CategoriesViewModel}">
+            <v:CategoriesView/>
+        </DataTemplate>
 
         <!-- Main menu buttons style -->
         <Style x:Key="menuButton" TargetType="Button">
