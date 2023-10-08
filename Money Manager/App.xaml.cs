@@ -4,6 +4,7 @@ using MvvmApp.ViewModels.Base;
 using SimpleInjector;
 using System.Windows;
 using Money_Manager.ViewModels;
+using Money_Manager.Context;
 
 namespace Money_Manager
 {
@@ -43,6 +44,7 @@ namespace Money_Manager
             Container.RegisterSingleton<ExpensesViewModel>();
             Container.RegisterSingleton<AccountsViewModel>();
             Container.RegisterSingleton<CategoriesViewModel>();
+            Container.RegisterSingleton<MoneyManagerDbContext>();
 
             Container.Verify();
         }

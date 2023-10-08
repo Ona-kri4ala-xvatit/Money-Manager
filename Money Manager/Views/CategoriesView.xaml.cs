@@ -7,6 +7,14 @@ namespace Money_Manager.Views
         public CategoriesView()
         {
             InitializeComponent();
+            
+            //if (AccountsList.Items.Count == 0)
+            //{
+
+            //}
+            //AccountsList.Items.Add("HELLO");
         }
+
+       
     }
 }

@@ -3,17 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Money_Manager.Views"
+             xmlns:local="clr-namespace:Money_Manager.Views" 
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border Grid.Column="1" CornerRadius="0 15 15 0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="Lime" Offset="0"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="AccountsList" Height="330" Grid.Row="1" ItemsSource="{Binding Accounts}"
+   Background="Transparent"
+   HorizontalContentAlignment="Stretch"
+   BorderThickness="0"
+   SelectionMode="Single"
+   ScrollViewer.VerticalScrollBarVisibility="Auto"
+   ScrollViewer.CanContentScroll="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border x:Name="brd" Background="#443f5e" CornerRadius="15" Height="50">
+                        <DockPanel>
+                            <Border Width="40" Height ="40" Background="PaleVioletRed"  CornerRadius="90">
+                                <icon:PackIconMaterial Width="32" Height="32" Kind="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="AliceBlue"/>
+                            </Border>
+                            <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 0 0 0" VerticalAlignment="Center" Text="{Binding AccountName}" Foreground="AliceBlue"/>
+                            <TextBlock FontSize="14" FontWeight="Heavy" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 5 0" Foreground="AliceBlue" >
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0:0.00} {1}">
+                                        <Binding Path="Balance"/>
+                                        <Binding Path="Currency"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DockPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+
+
+
+
+
+
+        <Button HorizontalAlignment="Center" Style="{StaticResource menuButton}" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
+                <TextBlock Text="Add account" Style="{StaticResource menuButtonText}"/>
+            </StackPanel>
+        </Button>
+
     </Grid>
 </UserControl>

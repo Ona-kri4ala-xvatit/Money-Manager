@@ -3,17 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Money_Manager.Views"
+             xmlns:local="clr-namespace:Money_Manager.Views" 
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border Grid.Column="1" CornerRadius="0 15 15 0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="Chocolate" Offset="0"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Button HorizontalAlignment="Center" Style="{StaticResource menuButton}">
+            <StackPanel Orientation="Horizontal">
+                <icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
+                <TextBlock Text="Add account" Style="{StaticResource menuButtonText}"/>
+            </StackPanel>
+        </Button>-->
+
+        <ListBox x:Name="AccountsList" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=Icons}" TextBlock.FontSize="15" Margin="5" 
+             Background="Transparent"
+             BorderThickness="0"
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+             SelectionMode="Single">
+             <!--SelectedItem="{Binding Path=Image,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">-->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <icon:PackIconMaterial x:Name="Icon" Width="32" Height="32" Kind="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#443f5e"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+
+        
     </Grid>
 </UserControl>

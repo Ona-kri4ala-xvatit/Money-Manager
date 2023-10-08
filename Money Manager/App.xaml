@@ -7,7 +7,6 @@
              xmlns:v="clr-namespace:Money_Manager.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
         <DataTemplate DataType="{x:Type vm:OverviewViewModel}">
             <v:OverviewView/>
         </DataTemplate>
