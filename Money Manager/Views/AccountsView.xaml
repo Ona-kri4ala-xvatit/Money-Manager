@@ -9,17 +9,16 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="AccountsList" Height="330" Grid.Row="1" ItemsSource="{Binding Accounts}" 
-                SelectedItem="{Binding SelectedAccount}"
+        <ListBox Height="330" Grid.Row="1" ItemsSource="{Binding Accounts}"
                 Background="Transparent"
                 HorizontalContentAlignment="Stretch"
                 BorderThickness="0"
@@ -28,7 +27,7 @@
                 ScrollViewer.CanContentScroll="True">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border x:Name="brd" Background="#443f5e" CornerRadius="15" Height="50">
+                    <Border Background="#443f5e" CornerRadius="15" Height="50">
                         <DockPanel>
                             <Border Width="40" Height ="40" Background="PaleVioletRed"  CornerRadius="90">
                                 <icon:PackIconMaterial Width="32" Height="32" Kind="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="AliceBlue"/>
@@ -48,13 +47,51 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-
-        <Button HorizontalAlignment="Center" Style="{StaticResource menuButton}" Grid.Column="1">
+        <StackPanel Margin="15" Grid.Column="1" Grid.Row="1">
+            <TextBlock Text="Account Name" Margin="10" Foreground="#443f5e" FontSize="15"/>
             <StackPanel Orientation="Horizontal">
-                <icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
-                <TextBlock Text="Add account" Style="{StaticResource menuButtonText}"/>
+                <TextBox Margin="10 0 0 0" Foreground="#443f5e" Background="Transparent"
+                        FontSize="20" MaxLength="20" VerticalAlignment="Bottom"  Cursor="IBeam" Width="250">
+                    <TextBox.Text>
+                        <Binding Path="AccountName"/>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
-        </Button>
 
+            <TextBlock Text="Balance" Margin="10" Foreground="#443f5e" FontSize="15"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Margin="10 0 0 0" Foreground="#443f5e" Background="Transparent"
+                             FontSize="20" MaxLength="20" VerticalAlignment="Bottom"  Cursor="IBeam" Width="250">
+                    <TextBox.Text>
+                        <Binding Path="Balance"/>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+
+            <ListBox Height="100" ItemsSource="{Binding Icons}" TextBlock.FontSize="15" Margin="5 20" 
+                SelectedValue="{Binding SelectedIcon}"
+                Background="Transparent"
+                BorderThickness="0"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                SelectionMode="Single">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <icon:PackIconMaterial x:Name="Icon" Width="32" Height="32" Kind="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#443f5e"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" Style="{StaticResource menuButton}" Command="{Binding SaveAccountCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Add account" Style="{StaticResource menuButtonText}"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>

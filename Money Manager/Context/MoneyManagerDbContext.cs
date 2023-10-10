@@ -13,7 +13,7 @@ namespace Money_Manager.Context
 
         public MoneyManagerDbContext()
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

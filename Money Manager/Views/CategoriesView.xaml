@@ -73,7 +73,7 @@
             <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" Style="{StaticResource menuButton}" Command="{Binding SaveCategoryCommand}">
                 <StackPanel Orientation="Horizontal">
                     <icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Text="Add account" Style="{StaticResource menuButtonText}"/>
+                    <TextBlock Text="Add category" Style="{StaticResource menuButtonText}"/>
                 </StackPanel>
             </Button>
         </StackPanel>

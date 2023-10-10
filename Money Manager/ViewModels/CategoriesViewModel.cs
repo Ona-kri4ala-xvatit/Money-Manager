@@ -62,7 +62,8 @@ namespace Money_Manager.ViewModels
                     CategoryName = this.CategoryName,
                     Icon = this.SelectedIcon,
                     TransactionType = this.Type
-                }); 
+                });
+                this.CategoryName = string.Empty;
             }, 
             () => true);
         #endregion
