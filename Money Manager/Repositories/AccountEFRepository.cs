@@ -10,12 +10,12 @@ namespace Money_Manager.Repositories
     {
         private readonly MoneyManagerDbContext dbContext;
 
-        public AccountEFRepository(MoneyManagerDbContext moneyManagerDbContext) 
-        { 
-            if(dbContext is null)
+        public AccountEFRepository(MoneyManagerDbContext moneyManagerDbContext)
+        {
+            if (dbContext is null)
                 this.dbContext = new MoneyManagerDbContext();
             else
-                this.dbContext = moneyManagerDbContext; 
+                this.dbContext = moneyManagerDbContext;
         }
 
         public IEnumerable<Account> GetAllAccounts()

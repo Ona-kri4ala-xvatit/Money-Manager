@@ -10,31 +10,35 @@ namespace Money_Manager.ViewModels
     public class CategoriesViewModel : ViewModelBase
     {
         private readonly ICategoryRepository categoryRepository;
+
         public static ObservableCollection<string> Icons { get; set; } = new ObservableCollection<string>()
         {
            "BabyFaceOutline", "Badminton", "BacteriaOutline", "BasketFill",
            "BankOutline", "BathtubOutline", "BedSingle","Billboard","BottleTonicPlus","BottleWineOutline",
-           "BowlMixOutline","BusDoubleDecker","CakeVariantOutline","CandelabraFire","Campfire",
+           "BowlMixOutline","BusDoubleDecker","FaceWomanOutline", "CakeVariantOutline","CandelabraFire","Campfire",
            "CarConvertible","CardsHeart","CardsPlayingSpadeMultiple","Cart","Cat","Charity","SackPercent",
            "ChessQueen","Church","Cigar","HomeHeart","PaletteOutline","FormatPaint","GiftOpenOutline",
-           "Basketball","SchoolOutline","CoffeeOutline","BottleTonicPlusOutline","Lipstick","HandCoinOutline",
+           "Basketball","SchoolOutline","CoffeeOutline","FaceWoman","BottleTonicPlusOutline","Lipstick","HandCoinOutline",
            "CurrencyUsd", "CreditCard", "Dog", "DogService", "Laptop", "PercentOutline", "Gift", "GiftOpen", "Home"
         };
 
         #region Properties
+        public ObservableCollection<Category> Categories { get; set; }
+
         private string? selectedIcon;
         public string? SelectedIcon
         {
-            get => selectedIcon; 
-            set 
+            get => selectedIcon;
+            set
             {
                 base.PropertyChangeMethod(out selectedIcon, value);
             }
         }
 
         private string? categoryName;
-        public string? CategoryName {
-            get => categoryName; 
+        public string? CategoryName
+        {
+            get => categoryName;
             set
             {
                 base.PropertyChangeMethod(out categoryName, value);
@@ -55,7 +59,7 @@ namespace Money_Manager.ViewModels
         #region Command
         private CommandBase? saveCategoryCommand;
         public CommandBase? SaveCategoryCommand => this.saveCategoryCommand ??= new CommandBase(
-            () => 
+            () =>
             {
                 categoryRepository.CreateCategory(new Category()
                 {
@@ -64,14 +68,27 @@ namespace Money_Manager.ViewModels
                     TransactionType = this.Type
                 });
                 this.CategoryName = string.Empty;
-            }, 
+                PrintCategory();
+            },
             () => true);
         #endregion
 
-        public CategoriesViewModel(ICategoryRepository categoryRepository) 
+        public CategoriesViewModel(ICategoryRepository categoryRepository)
         {
+            this.Categories = new ObservableCollection<Category>();
             this.categoryRepository = categoryRepository;
+            PrintCategory();
         }
 
+        public void PrintCategory()
+        {
+            Categories.Clear();
+            var categories = categoryRepository.GetAllCategories();
+
+            foreach (var category in categories)
+            {
+                Categories.Add(category);
+            }
+        }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Money_Manager.Models;
 using Money_Manager.Repositories.Base;
 using MvvmApp.Commands.Base;
-using MvvmApp.Mediator.Base;
-using MvvmApp.Messages;
 using MvvmApp.ViewModels.Base;
 using System.Collections.ObjectModel;
 
@@ -15,9 +13,10 @@ namespace Money_Manager.ViewModels
         {
              "Cash","Wallet","Bank","PiggyBankOutline","CreditCardOutline","CurrencyEur","WalletGiftcard","CurrencyUsd","CurrencyGbp"
         };
-        public ObservableCollection<Account> Accounts { get; set; }
 
         #region Properties
+        public ObservableCollection<Account> Accounts { get; set; }
+
         private string? selectedIcon;
         public string? SelectedIcon
         {
@@ -62,21 +61,22 @@ namespace Money_Manager.ViewModels
                 });
                 this.AccountName = string.Empty;
                 this.Balance = 0;
-                Accounts = new ObservableCollection<Account>(accountRepository.GetAllAccounts());
+
+                this.PrintAccounts();
             },
             () => true);
         #endregion
 
         public AccountsViewModel(IAccountRepository repository)
         {
+            Accounts = new ObservableCollection<Account>();
             this.accountRepository = repository;
-            this.Accounts = new ObservableCollection<Account>();
             this.PrintAccounts();
         }
 
-
         public void PrintAccounts()
         {
+            Accounts.Clear();
             var accounts = accountRepository.GetAllAccounts();
 
             foreach (var account in accounts)
@@ -84,7 +84,5 @@ namespace Money_Manager.ViewModels
                 Accounts.Add(account);
             }
         }
-
-
     }
 }

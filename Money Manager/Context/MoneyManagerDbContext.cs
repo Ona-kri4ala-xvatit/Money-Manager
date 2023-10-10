@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Money_Manager.Models;
+using System.Reflection.Metadata;
 
 namespace Money_Manager.Context
 {
@@ -7,6 +8,7 @@ namespace Money_Manager.Context
     {
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         const string connectionString = $"Server=localhost\\SQLEXPRESS;Database=MoneyManagerDb;TrustServerCertificate=True;Trusted_Connection=True;";
         //const string connectionString = $"Server=localhost;Database=MoneyManagerDb;User Id=admin;Password=admin;TrustServerCertificate=True");
@@ -22,27 +24,6 @@ namespace Money_Manager.Context
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder.UseSqlServer(connectionString);
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Account>().HasData(
-                    new Account()
-                    {
-                        Id = 1,
-                        AccountName = "Main",
-                        Balance = 0,
-                        Icon = "Wallet"
-                    },
-                    new Account()
-                    {
-                        Id = 2,
-                        AccountName = "Second",
-                        Balance = 0,
-                        Icon = "Cash",
-                    });
         }
     }
 }

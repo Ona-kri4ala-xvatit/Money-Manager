@@ -15,7 +15,7 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>-->
-        <icon:PackIconMaterial x:Name="Icon" Width="32" Height="32" Kind="Home" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#443f5e"/>
+        <icon:PackIconMaterial Width="32" Height="32" Kind="FaceWoman" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#443f5e"/>
 
     </Grid>
 </UserControl>

@@ -38,8 +38,9 @@ namespace Money_Manager
         private void RegisterContainer()
         {
             Container.RegisterSingleton<IMessenger, Messenger>();
-            Container.RegisterSingleton<ICategoryRepository, CategoryEFRepository>();
             Container.RegisterSingleton<IAccountRepository, AccountEFRepository>();
+            Container.RegisterSingleton<IIncomeRepository, IncomeEFRepository>();
+            Container.RegisterSingleton<ICategoryRepository, CategoryEFRepository>();
 
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<OverviewViewModel>();
