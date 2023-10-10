@@ -6,10 +6,10 @@ namespace Money_Manager.Context
     public class MoneyManagerDbContext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
-
+        public DbSet<Category> Categories { get; set; }
 
         const string connectionString = $"Server=localhost\\SQLEXPRESS;Database=MoneyManagerDb;TrustServerCertificate=True;Trusted_Connection=True;";
-        //Server=localhost;Database=MoneymanagerDb;User Id=admin;Password=admin;TrustServerCertificate=True");
+        //const string connectionString = $"Server=localhost;Database=MoneyManagerDb;User Id=admin;Password=admin;TrustServerCertificate=True");
 
         public MoneyManagerDbContext()
         {

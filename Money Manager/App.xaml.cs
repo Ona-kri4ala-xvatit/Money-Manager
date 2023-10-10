@@ -5,6 +5,9 @@ using SimpleInjector;
 using System.Windows;
 using Money_Manager.ViewModels;
 using Money_Manager.Context;
+using Money_Manager.Repositories.Base;
+using Money_Manager.Repositories;
+using Money_Manager.Converters;
 
 namespace Money_Manager
 {
@@ -34,9 +37,9 @@ namespace Money_Manager
 
         private void RegisterContainer()
         {
-            //Container.RegisterSingleton<IProductRepository, ProductDapperRepository>();
-            //Container.RegisterSingleton<IProductStatusRepository, ProductStatusDapperRepository>();
             Container.RegisterSingleton<IMessenger, Messenger>();
+            Container.RegisterSingleton<ICategoryRepository, CategoryEFRepository>();
+            Container.RegisterSingleton<IAccountRepository, AccountEFRepository>();
 
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<OverviewViewModel>();

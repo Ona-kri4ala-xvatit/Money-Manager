@@ -18,13 +18,14 @@
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="AccountsList" Height="330" Grid.Row="1" ItemsSource="{Binding Accounts}"
-   Background="Transparent"
-   HorizontalContentAlignment="Stretch"
-   BorderThickness="0"
-   SelectionMode="Single"
-   ScrollViewer.VerticalScrollBarVisibility="Auto"
-   ScrollViewer.CanContentScroll="True">
+        <ListBox x:Name="AccountsList" Height="330" Grid.Row="1" ItemsSource="{Binding Accounts}" 
+                SelectedItem="{Binding SelectedAccount}"
+                Background="Transparent"
+                HorizontalContentAlignment="Stretch"
+                BorderThickness="0"
+                SelectionMode="Single"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                ScrollViewer.CanContentScroll="True">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border x:Name="brd" Background="#443f5e" CornerRadius="15" Height="50">
@@ -46,12 +47,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
-
-
-
-
-
 
 
         <Button HorizontalAlignment="Center" Style="{StaticResource menuButton}" Grid.Column="1">

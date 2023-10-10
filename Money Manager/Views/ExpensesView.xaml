@@ -3,17 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Money_Manager.Views"
+             xmlns:local="clr-namespace:Money_Manager.Views" xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border Grid.Column="1" CornerRadius="0 15 15 0">
+        <!--<Border Grid.Column="1" CornerRadius="0 15 15 0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="CadetBlue" Offset="0"/>
                     <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-        </Border>
+        </Border>-->
+        <icon:PackIconMaterial x:Name="Icon" Width="32" Height="32" Kind="Home" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#443f5e"/>
+
     </Grid>
 </UserControl>
