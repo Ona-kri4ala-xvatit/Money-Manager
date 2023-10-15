@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Money_Manager.Context;
 using Money_Manager.Models;
 using Money_Manager.Repositories.Base;
@@ -39,6 +40,17 @@ namespace Money_Manager.Repositories
         public IEnumerable<Category> GetAllCategories()
         {
             return dbContext.Categories.ToList();
+        }
+
+        public void DeleteCategory(int categoryId)
+        {
+            var categoryToDelete = this.dbContext.Categories.FirstOrDefault(x => x.Id == categoryId);
+
+            if (categoryToDelete != null)
+            {
+                this.dbContext.Categories.Remove(categoryToDelete);
+                this.dbContext.SaveChanges();
+            }
         }
     }
 }

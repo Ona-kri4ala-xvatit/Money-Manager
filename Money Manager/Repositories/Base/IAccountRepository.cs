@@ -8,5 +8,6 @@ namespace Money_Manager.Repositories.Base
     {
         public IEnumerable<Account> GetAllAccounts();
         public void CreateAccount(Account account);
+        public void DeleteAccount(int accountId);
     }
 }

@@ -10,6 +10,7 @@ namespace Money_Manager.ViewModels
     public class CategoriesViewModel : ViewModelBase
     {
         private readonly ICategoryRepository categoryRepository;
+        private SharedDataCategories sharedDataCategories;
 
         public static ObservableCollection<string> Icons { get; set; } = new ObservableCollection<string>()
         {
@@ -23,36 +24,31 @@ namespace Money_Manager.ViewModels
         };
 
         #region Properties
-        public ObservableCollection<Category> Categories { get; set; }
+        public ObservableCollection<Category> Categories { get; }
+
+        private Category? selectedCategory;
+        public Category? SelectedCategory { get => selectedCategory; set => base.PropertyChangeMethod(out selectedCategory, value); }
 
         private string? selectedIcon;
         public string? SelectedIcon
         {
             get => selectedIcon;
-            set
-            {
-                base.PropertyChangeMethod(out selectedIcon, value);
-            }
+            set => base.PropertyChangeMethod(out selectedIcon, value);   
         }
 
         private string? categoryName;
         public string? CategoryName
         {
             get => categoryName;
-            set
-            {
-                base.PropertyChangeMethod(out categoryName, value);
-            }
+            set => base.PropertyChangeMethod(out categoryName, value);
+
         }
 
         private TransactionType type;
         public TransactionType Type
         {
             get => type;
-            set
-            {
-                base.PropertyChangeMethod(out type, value);
-            }
+            set => base.PropertyChangeMethod(out type, value);
         }
         #endregion
 
@@ -61,22 +57,39 @@ namespace Money_Manager.ViewModels
         public CommandBase? SaveCategoryCommand => this.saveCategoryCommand ??= new CommandBase(
             () =>
             {
-                categoryRepository.CreateCategory(new Category()
+                if (!string.IsNullOrEmpty(categoryName) && Icons.Count != 0)
                 {
-                    CategoryName = this.CategoryName,
-                    Icon = this.SelectedIcon,
-                    TransactionType = this.Type
-                });
-                this.CategoryName = string.Empty;
+                    categoryRepository.CreateCategory(new Category()
+                    {
+                        CategoryName = this.CategoryName,
+                        Icon = this.SelectedIcon,
+                        TransactionType = this.Type
+                    });
+                    this.CategoryName = string.Empty;
+                    PrintCategory();
+                }
+            },
+            () => true);
+
+        private CommandBase? deleteCategoryCommand;
+        public CommandBase? DeleteCategoryCommand => this.deleteCategoryCommand ??= new CommandBase(
+            () =>
+            {
+                if (SelectedCategory is not null)
+                {
+                    categoryRepository.DeleteCategory(SelectedCategory.Id);
+                }
                 PrintCategory();
             },
             () => true);
         #endregion
 
-        public CategoriesViewModel(ICategoryRepository categoryRepository)
+        public CategoriesViewModel(ICategoryRepository categoryRepository, SharedDataCategories sharedDataCategories)
         {
-            this.Categories = new ObservableCollection<Category>();
+            this.sharedDataCategories = sharedDataCategories;
+            this.Categories = sharedDataCategories.Categories;
             this.categoryRepository = categoryRepository;
+
             PrintCategory();
         }
 
@@ -89,6 +102,12 @@ namespace Money_Manager.ViewModels
             {
                 Categories.Add(category);
             }
+
+            //var categories = categoryRepository.GetAllCategories();
+            //foreach (var category in categories)
+            //{
+            //    SharedData.AddItemToSharedCollection(category);
+            //}
         }
     }
 }

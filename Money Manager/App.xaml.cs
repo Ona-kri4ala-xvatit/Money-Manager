@@ -8,6 +8,7 @@ using Money_Manager.Context;
 using Money_Manager.Repositories.Base;
 using Money_Manager.Repositories;
 using Money_Manager.Converters;
+using Money_Manager.Services;
 
 namespace Money_Manager
 {
@@ -48,8 +49,11 @@ namespace Money_Manager
             Container.RegisterSingleton<ExpensesViewModel>();
             Container.RegisterSingleton<AccountsViewModel>();
             Container.RegisterSingleton<CategoriesViewModel>();
+
             Container.RegisterSingleton<MoneyManagerDbContext>();
 
+            Container.RegisterSingleton<SharedDataCategories>();
+            Container.RegisterSingleton<SharedDataAccounts>();
             Container.Verify();
         }
 

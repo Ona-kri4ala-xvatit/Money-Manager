@@ -19,6 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <ListBox Height="330" Grid.Row="1" ItemsSource="{Binding Accounts}"
+                 SelectedItem="{Binding SelectedAccount}"
                 Background="Transparent"
                 HorizontalContentAlignment="Stretch"
                 BorderThickness="0"
@@ -90,6 +91,13 @@
                 <StackPanel Orientation="Horizontal">
                     <icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Add account" Style="{StaticResource menuButtonText}"/>
+                </StackPanel>
+            </Button>
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" Style="{StaticResource menuButton}" Command="{Binding DeleteAccountCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Minus" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Delete account" Style="{StaticResource menuButtonText}"/>
                 </StackPanel>
             </Button>
         </StackPanel>

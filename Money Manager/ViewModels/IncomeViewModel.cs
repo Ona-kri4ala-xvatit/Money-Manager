@@ -14,9 +14,12 @@ namespace Money_Manager.ViewModels
         private readonly ICategoryRepository categoryRepository;
         private readonly IIncomeRepository incomeRepository;
 
+        private SharedDataCategories sharedDataCategories;
+        private SharedDataAccounts sharedDataAccounts;
+
         #region Properties
-        public ObservableCollection<Account> Accounts { get; set; } = new ObservableCollection<Account>();
-        public ObservableCollection<Category> Categories { get; set; } = new ObservableCollection<Category>();
+        public ObservableCollection<Account> Accounts { get; }
+        public ObservableCollection<Category> Categories { get; }
 
         private Account? selectedAccount;
         public Account? SelectedAccount { get => selectedAccount; set => base.PropertyChangeMethod(out selectedAccount, value); }
@@ -39,35 +42,41 @@ namespace Money_Manager.ViewModels
                 incomeRepository.CreateIncomeTransaction(new Transaction()
                 {
                     Money = this.Money,
-                    Date = this.Date,
+                    Date = this.Date.Date,
                     TransactionType = TransactionType.Income,
-                    Account = SelectedAccount,
-                    Category = SelectedCategory
+                    AccountId = SelectedAccount.Id,
+                    CategoryId = SelectedCategory.Id
                 });
 
                 this.Money = 0;
-
-
             },
             () => true);
         #endregion
 
 
-        public IncomeViewModel(IAccountRepository AccountRepository, ICategoryRepository CategoryRepository, IIncomeRepository IncomeRepository)
+        public IncomeViewModel(IAccountRepository accountRepository, ICategoryRepository categoryRepository, IIncomeRepository incomeRepository, SharedDataCategories sharedDataCategories, SharedDataAccounts sharedDataAccounts)
         {
+            this.sharedDataAccounts = sharedDataAccounts;
+            Accounts = sharedDataAccounts.Accounts;
+
+            this.sharedDataCategories = sharedDataCategories;
+            Categories = sharedDataCategories.Categories;
+
             Date = DateTime.Now;
 
-            this.accountRepository = AccountRepository;
-            this.categoryRepository = CategoryRepository;
-            this.incomeRepository = IncomeRepository;
+            this.accountRepository = accountRepository;
+            this.categoryRepository = categoryRepository;
+            this.incomeRepository = incomeRepository;
 
 
             this.PrintIncomeCategories();
             this.PrintAccounts();
+            this.sharedDataAccounts = sharedDataAccounts;
         }
 
         private void PrintIncomeCategories()
         {
+            Categories.Clear();
             var categories = categoryRepository.GetIncomeCategories();
             foreach (var category in categories)
             {
@@ -77,6 +86,7 @@ namespace Money_Manager.ViewModels
 
         private void PrintAccounts()
         {
+            Accounts.Clear();
             var accounts = accountRepository.GetAllAccounts();
             foreach (var account in accounts)
             {

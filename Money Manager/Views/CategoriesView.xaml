@@ -5,13 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Money_Manager.Views" 
              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
-             xmlns:converters="clr-namespace:Money_Manager.Converters"
+             xmlns:converters="clr-namespace:Money_Manager.Converters" 
+             xmlns:local1="clr-namespace:Money_Manager.Services"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
     <Control.Resources>
         <converters:TransactionTypeToBoolConverter x:Key="TransactionTypeToBoolConverterKey" />
     </Control.Resources>
+
+    <!--<Control.DataContext>
+        <local1:SharedData/>
+    </Control.DataContext>-->
 
     <Grid>
         <Grid.RowDefinitions>
@@ -25,12 +30,13 @@
         </Grid.ColumnDefinitions>
 
 
-        <ListBox Grid.Column="0" Grid.Row="1" Padding="10" Margin="10" ItemsSource="{Binding Path=Categories}"
-            Background="Transparent"
-            HorizontalContentAlignment="Stretch"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            BorderThickness="0"
-            Height="300">
+        <ListBox Grid.Column="0" Grid.Row="1" Padding="10" Margin="10" ItemsSource="{Binding Categories}"
+                 SelectedItem="{Binding SelectedCategory}"
+                 Background="Transparent"
+                 HorizontalContentAlignment="Stretch"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 BorderThickness="0"
+                 Height="300">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -96,13 +102,21 @@
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                 </ListBox>
-
+ 
             <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" Style="{StaticResource menuButton}" Command="{Binding SaveCategoryCommand}">
                 <StackPanel Orientation="Horizontal">
                     <icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
                     <TextBlock Text="Add category" Style="{StaticResource menuButtonText}"/>
                 </StackPanel>
             </Button>
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" Style="{StaticResource menuButton}" Command="{Binding DeleteCategoryCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Minus" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Delete category" Style="{StaticResource menuButtonText}"/>
+                </StackPanel>
+            </Button>
+           
         </StackPanel>
     </Grid>
 </UserControl>

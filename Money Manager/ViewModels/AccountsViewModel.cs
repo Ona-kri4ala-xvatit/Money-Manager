@@ -1,5 +1,6 @@
 ﻿using Money_Manager.Models;
 using Money_Manager.Repositories.Base;
+using Money_Manager.Services;
 using MvvmApp.Commands.Base;
 using MvvmApp.ViewModels.Base;
 using System.Collections.ObjectModel;
@@ -9,6 +10,7 @@ namespace Money_Manager.ViewModels
     public class AccountsViewModel : ViewModelBase
     {
         private readonly IAccountRepository accountRepository;
+        private SharedDataAccounts sharedDataAccounts; 
         public static ObservableCollection<string> Icons { get; set; } = new ObservableCollection<string>()
         {
              "Cash","Wallet","Bank","PiggyBankOutline","CreditCardOutline","CurrencyEur","WalletGiftcard","CurrencyUsd","CurrencyGbp"
@@ -16,6 +18,9 @@ namespace Money_Manager.ViewModels
 
         #region Properties
         public ObservableCollection<Account> Accounts { get; set; }
+
+        private Account? selectedAccount;
+        public Account? SelectedAccount { get => selectedAccount; set => base.PropertyChangeMethod(out selectedAccount, value); }
 
         private string? selectedIcon;
         public string? SelectedIcon
@@ -65,11 +70,26 @@ namespace Money_Manager.ViewModels
                 this.PrintAccounts();
             },
             () => true);
+
+        private CommandBase? deleteAccountCommand;
+        public CommandBase? DeleteAccountCommand => this.deleteAccountCommand ??= new CommandBase(
+        () =>
+        {
+            if (selectedAccount is not null)
+            {
+                accountRepository.DeleteAccount(selectedAccount.Id);
+            }
+
+            PrintAccounts();
+        },
+            () => true);
         #endregion
 
-        public AccountsViewModel(IAccountRepository repository)
+        public AccountsViewModel(IAccountRepository repository, SharedDataAccounts sharedDataAccounts)
         {
-            Accounts = new ObservableCollection<Account>();
+            this.sharedDataAccounts = sharedDataAccounts;
+            Accounts = sharedDataAccounts.Accounts;
+
             this.accountRepository = repository;
             this.PrintAccounts();
         }

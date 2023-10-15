@@ -10,5 +10,6 @@ namespace Money_Manager.Repositories.Base
         public IEnumerable<Category> GetIncomeCategories();
         public IEnumerable<Category> GetExpensesCategories();
         public IEnumerable<Category> GetAllCategories();
+        public void DeleteCategory(int categoryId);
     }
 }
