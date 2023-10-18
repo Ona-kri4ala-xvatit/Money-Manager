@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Money_Manager.Context;
+﻿using Money_Manager.Context;
 using Money_Manager.Models;
 using Money_Manager.Repositories.Base;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

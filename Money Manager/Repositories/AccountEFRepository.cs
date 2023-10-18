@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Money_Manager.Context;
+﻿using Money_Manager.Context;
 using Money_Manager.Models;
 using Money_Manager.Repositories.Base;
+using Money_Manager.Services;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,7 +22,6 @@ namespace Money_Manager.Repositories
         public IEnumerable<Account> GetAllAccounts()
         {
             return dbContext.Accounts.ToList();
-            //return dbContext.Accounts.Include(x => x.AccountName).ToList();
         }
 
         public void CreateAccount(Account account)
@@ -39,6 +38,25 @@ namespace Money_Manager.Repositories
             {
                 this.dbContext.Accounts.Remove(accountToDelete);
                 this.dbContext.SaveChanges();
+            }
+        }
+
+        public void UpdateAccountBalance(int id, decimal money, TransactionType transactionType)
+        {
+            var account = dbContext.Accounts.FirstOrDefault(a => a.Id == id);
+
+            if (account is not null)
+            {
+                if (transactionType == TransactionType.Income)
+                {
+                    account.Balance += money;
+                    dbContext.SaveChanges();
+                }
+                else
+                {
+                    account.Balance -= money;
+                    dbContext.SaveChanges();
+                }
             }
         }
     }

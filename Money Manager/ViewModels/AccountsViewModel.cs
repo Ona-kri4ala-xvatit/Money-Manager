@@ -67,7 +67,7 @@ namespace Money_Manager.ViewModels
                 this.AccountName = string.Empty;
                 this.Balance = 0;
 
-                this.PrintAccounts();
+                this.GetAccounts();
             },
             () => true);
 
@@ -75,12 +75,12 @@ namespace Money_Manager.ViewModels
         public CommandBase? DeleteAccountCommand => this.deleteAccountCommand ??= new CommandBase(
         () =>
         {
-            if (selectedAccount is not null)
+            if (SelectedAccount is not null)
             {
-                accountRepository.DeleteAccount(selectedAccount.Id);
+                accountRepository.DeleteAccount(SelectedAccount.Id);
             }
 
-            PrintAccounts();
+            this.GetAccounts();
         },
             () => true);
         #endregion
@@ -91,10 +91,10 @@ namespace Money_Manager.ViewModels
             Accounts = sharedDataAccounts.Accounts;
 
             this.accountRepository = repository;
-            this.PrintAccounts();
+            GetAccounts();
         }
 
-        public void PrintAccounts()
+        public void GetAccounts()
         {
             Accounts.Clear();
             var accounts = accountRepository.GetAllAccounts();

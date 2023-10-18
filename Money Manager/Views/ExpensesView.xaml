@@ -7,15 +7,99 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <!--<Border Grid.Column="1" CornerRadius="0 15 15 0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="CadetBlue" Offset="0"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>-->
-        <icon:PackIconMaterial Width="32" Height="32" Kind="FaceWoman" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#443f5e"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox Height="330" Grid.Row="1" ItemsSource="{Binding ExpensesTransactions}"
+             SelectedItem="{Binding SelectedExpensesTransaction}"
+    Background="Transparent"
+    HorizontalContentAlignment="Stretch"
+    BorderThickness="0"
+    SelectionMode="Single"
+    ScrollViewer.VerticalScrollBarVisibility="Auto"
+    ScrollViewer.CanContentScroll="True">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="#443f5e" CornerRadius="15" Height="50">
+                            <DockPanel>
+                                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 0 0 0" VerticalAlignment="Center" Text="{Binding Date, StringFormat={}{0:dd MMMM/yyyy}}" Foreground="AliceBlue"/>
+                                <TextBlock FontSize="14" FontWeight="Heavy" VerticalAlignment="Center" HorizontalAlignment="Right" Text="{Binding Money}" Margin="0 0 5 0" Foreground="AliceBlue"/>
+                            </DockPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <StackPanel Margin="15" Grid.Column="1" Grid.Row="1">
+                <TextBlock Text="Sum" Margin="10" Foreground="#443f5e" FontSize="15"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Margin="10 0 0 0" Foreground="#443f5e" Background="Transparent"
+            FontSize="20" MaxLength="6" VerticalAlignment="Bottom"  Cursor="IBeam" Width="250">
+                        <TextBox.Text>
+                            <Binding Path="Money"  StringFormat="{}{0:#.##}"/>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <TextBlock Foreground="#443f5e" Text="Accounts" FontSize="14" Margin="10"/>
+                <ComboBox ItemsSource="{Binding Accounts}" HorizontalAlignment="Left" FontSize="14" FontWeight="DemiBold"
+                  Margin="10 0 0 10" Width="150"  Height="30" SelectedItem="{Binding SelectedAccount}" Foreground="#443f5e">
+                </ComboBox>
+
+                <TextBlock Foreground="#443f5e" Text="Categories" FontSize="14" Margin="10"/>
+                <ListBox Padding="10" Margin="10" ItemsSource="{Binding ExpensesCategories}" SelectedItem="{Binding SelectedCategory}"
+                 Background="Transparent"
+                 HorizontalContentAlignment="Stretch"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 BorderThickness="0"
+                 SelectionMode="Single" Height="100">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <icon:PackIconMaterial x:Name="Icon" Width="32" Height="32" Kind="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#443f5e"/>
+                                <TextBlock FontSize="12"
+                      MaxWidth="60"
+                      HorizontalAlignment="Center"
+                      Foreground="#443f5e"
+                      Text="{Binding CategoryName}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+
+                <DatePicker Foreground="#443f5e" HorizontalAlignment="Left" Margin="20 0 20 0" FontSize="16">
+                    <DatePicker.SelectedDate>
+                        <Binding Path="Date"/>
+                    </DatePicker.SelectedDate>
+                </DatePicker>
+
+                <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 0" Style="{StaticResource menuButton}" Command="{Binding SaveExpensesCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Add expenses" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 0" Style="{StaticResource menuButton}" Command="{Binding DeleteExpensesCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="Minus" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Delete expenses" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

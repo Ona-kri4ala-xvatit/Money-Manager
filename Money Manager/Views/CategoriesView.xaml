@@ -3,34 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Money_Manager.Views" 
              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
              xmlns:converters="clr-namespace:Money_Manager.Converters" 
-             xmlns:local1="clr-namespace:Money_Manager.Services"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
+
     <Control.Resources>
         <converters:TransactionTypeToBoolConverter x:Key="TransactionTypeToBoolConverterKey" />
     </Control.Resources>
 
-    <!--<Control.DataContext>
-        <local1:SharedData/>
-    </Control.DataContext>-->
-
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
+
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
 
+        <TextBlock Text="Income categories" HorizontalAlignment="Center" FontSize="16" Margin="0 100 0 0" Foreground="#443f5e"/>
+        <ListBox Grid.Row="1" Padding="10" Margin="10" ItemsSource="{Binding IncomeCategories}"
+         SelectedItem="{Binding SelectedCategory}"
+         Background="Transparent"
+         HorizontalContentAlignment="Stretch"
+         ScrollViewer.VerticalScrollBarVisibility="Auto"
+         BorderThickness="0"
+         Height="300">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <icon:PackIconMaterial Width="32" Height="32" Kind="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#443f5e"/>
+                        <TextBlock FontSize="12"
+         MaxWidth="60"
+         HorizontalAlignment="Center"
+         Foreground="#443f5e"
+         Text="{Binding CategoryName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
 
-        <ListBox Grid.Column="0" Grid.Row="1" Padding="10" Margin="10" ItemsSource="{Binding Categories}"
+        <TextBlock Text="Expenses categories" Grid.Column="1" HorizontalAlignment="Center" FontSize="16" Margin="0 100 0 0" Foreground="#443f5e"/>
+        <ListBox Grid.Column="1" Grid.Row="1" Padding="10" Margin="10" ItemsSource="{Binding ExpensesCategories}"
                  SelectedItem="{Binding SelectedCategory}"
                  Background="Transparent"
                  HorizontalContentAlignment="Stretch"
@@ -55,10 +77,10 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        
 
-        <StackPanel Margin="15" Grid.Column="1" Grid.Row="1">
-            <TextBlock Text="Category Name" Margin="10" Foreground="#443f5e" FontSize="15"/>
+
+        <StackPanel Margin="15" Grid.Column="2" Grid.Row="1">
+            <TextBlock Text="Category Name" Margin="10" Foreground="#443f5e" FontSize="16"/>
             <StackPanel Orientation="Horizontal">
                 <TextBox Name="CategoryNameTextBox" Margin="10 0 0 0" Foreground="#443f5e" Background="Transparent"
                          FontSize="20" MaxLength="20" VerticalAlignment="Bottom"  Cursor="IBeam" Width="250">

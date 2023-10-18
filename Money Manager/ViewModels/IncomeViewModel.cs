@@ -12,20 +12,24 @@ namespace Money_Manager.ViewModels
     {
         private readonly IAccountRepository accountRepository;
         private readonly ICategoryRepository categoryRepository;
-        private readonly IIncomeRepository incomeRepository;
+        private readonly ITransactionRepository transactionRepository;
 
         private SharedDataCategories sharedDataCategories;
         private SharedDataAccounts sharedDataAccounts;
 
         #region Properties
+        public ObservableCollection<Transaction> IncomeTransactions { get; }
         public ObservableCollection<Account> Accounts { get; }
-        public ObservableCollection<Category> Categories { get; }
+        public ObservableCollection<Category> IncomeCategories { get; }
 
         private Account? selectedAccount;
         public Account? SelectedAccount { get => selectedAccount; set => base.PropertyChangeMethod(out selectedAccount, value); }
 
         private Category? selectedCategory;
         public Category? SelectedCategory { get => selectedCategory; set => base.PropertyChangeMethod(out selectedCategory, value); }
+
+        private Transaction? selectedIncomeTransaction;
+        public Transaction? SelectedIncomeTransaction { get => selectedIncomeTransaction; set => base.PropertyChangeMethod(out selectedIncomeTransaction, value); }
 
         private decimal money;
         public decimal Money { get => money; set => base.PropertyChangeMethod(out money, value); }
@@ -39,7 +43,7 @@ namespace Money_Manager.ViewModels
         public CommandBase? SaveIncomeCommand => this.saveIncomeCommand ??= new CommandBase(
             () =>
             {
-                incomeRepository.CreateIncomeTransaction(new Transaction()
+                transactionRepository.CreateTransaction(new Transaction()
                 {
                     Money = this.Money,
                     Date = this.Date.Date,
@@ -47,50 +51,73 @@ namespace Money_Manager.ViewModels
                     AccountId = SelectedAccount.Id,
                     CategoryId = SelectedCategory.Id
                 });
-
+                GetIncomeTransactions();
+                accountRepository.UpdateAccountBalance(SelectedAccount.Id, this.Money, TransactionType.Income);
                 this.Money = 0;
+            },
+            () => true);
+
+        private CommandBase? deleteIncomeCommand;
+        public CommandBase? DeleteIncomeCommand => this.deleteIncomeCommand ??= new CommandBase(
+            () =>
+            {
+                if (SelectedIncomeTransaction is not null)
+                {
+                    transactionRepository.DeleteTransaction(SelectedIncomeTransaction.Id);
+                }
+                GetIncomeTransactions();
             },
             () => true);
         #endregion
 
-
-        public IncomeViewModel(IAccountRepository accountRepository, ICategoryRepository categoryRepository, IIncomeRepository incomeRepository, SharedDataCategories sharedDataCategories, SharedDataAccounts sharedDataAccounts)
+        public IncomeViewModel(IAccountRepository accountRepository, ICategoryRepository categoryRepository, ITransactionRepository transactionRepository, SharedDataCategories sharedDataCategories, SharedDataAccounts sharedDataAccounts)
         {
-            this.sharedDataAccounts = sharedDataAccounts;
-            Accounts = sharedDataAccounts.Accounts;
-
-            this.sharedDataCategories = sharedDataCategories;
-            Categories = sharedDataCategories.Categories;
-
-            Date = DateTime.Now;
-
             this.accountRepository = accountRepository;
             this.categoryRepository = categoryRepository;
-            this.incomeRepository = incomeRepository;
+            this.transactionRepository = transactionRepository;
 
-
-            this.PrintIncomeCategories();
-            this.PrintAccounts();
             this.sharedDataAccounts = sharedDataAccounts;
+            this.sharedDataCategories = sharedDataCategories;
+
+            this.IncomeTransactions = new ObservableCollection<Transaction>();
+
+            this.Accounts = sharedDataAccounts.Accounts;
+            this.IncomeCategories = sharedDataCategories.IncomeCategories;
+
+            this.Date = DateTime.Now;
+
+            this.GetIncomeCategories();
+            this.GetAccounts();
+            this.GetIncomeTransactions();
         }
 
-        private void PrintIncomeCategories()
+        private void GetIncomeCategories()
         {
-            Categories.Clear();
+            IncomeCategories.Clear();
             var categories = categoryRepository.GetIncomeCategories();
             foreach (var category in categories)
             {
-                Categories.Add(category);
+                IncomeCategories.Add(category);
             }
         }
 
-        private void PrintAccounts()
+        private void GetAccounts()
         {
             Accounts.Clear();
             var accounts = accountRepository.GetAllAccounts();
             foreach (var account in accounts)
             {
                 Accounts.Add(account);
+            }
+        }
+
+        private void GetIncomeTransactions()
+        {
+            IncomeTransactions.Clear();
+            var incomeTransactions = transactionRepository.GetIncomeTransactions();
+            foreach (var transaction in incomeTransactions)
+            {
+                IncomeTransactions.Add(transaction);
             }
         }
     }

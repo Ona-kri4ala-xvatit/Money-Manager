@@ -5,11 +5,18 @@ namespace Money_Manager.Services
 {
     public class SharedDataCategories
     {
-        private ObservableCollection<Category> categories = new ObservableCollection<Category>();
+        private ObservableCollection<Category> incomeCategories = new ObservableCollection<Category>();
 
-        public ObservableCollection<Category> Categories
+        public ObservableCollection<Category> IncomeCategories
         {
-            get => categories;
+            get => incomeCategories;
+        }
+
+        private ObservableCollection<Category> expensesCategories = new ObservableCollection<Category>();
+
+        public ObservableCollection<Category> ExpensesCategories
+        {
+            get => expensesCategories;
         }
     }
 }

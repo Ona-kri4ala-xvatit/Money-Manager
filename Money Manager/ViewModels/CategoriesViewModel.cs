@@ -24,7 +24,9 @@ namespace Money_Manager.ViewModels
         };
 
         #region Properties
-        public ObservableCollection<Category> Categories { get; }
+        public ObservableCollection<Category> IncomeCategories { get; }
+        public ObservableCollection<Category> ExpensesCategories { get; }
+        //public ObservableCollection<Category> Categories { get; }
 
         private Category? selectedCategory;
         public Category? SelectedCategory { get => selectedCategory; set => base.PropertyChangeMethod(out selectedCategory, value); }
@@ -66,7 +68,8 @@ namespace Money_Manager.ViewModels
                         TransactionType = this.Type
                     });
                     this.CategoryName = string.Empty;
-                    PrintCategory();
+                    GetIncomeCategories();
+                    GetExpensesCategories();
                 }
             },
             () => true);
@@ -79,7 +82,8 @@ namespace Money_Manager.ViewModels
                 {
                     categoryRepository.DeleteCategory(SelectedCategory.Id);
                 }
-                PrintCategory();
+                GetIncomeCategories();
+                GetExpensesCategories();
             },
             () => true);
         #endregion
@@ -87,27 +91,37 @@ namespace Money_Manager.ViewModels
         public CategoriesViewModel(ICategoryRepository categoryRepository, SharedDataCategories sharedDataCategories)
         {
             this.sharedDataCategories = sharedDataCategories;
-            this.Categories = sharedDataCategories.Categories;
+
+            this.IncomeCategories = sharedDataCategories.IncomeCategories;
+            this.ExpensesCategories = sharedDataCategories.ExpensesCategories;
+
             this.categoryRepository = categoryRepository;
 
-            PrintCategory();
+            GetIncomeCategories();
+            GetExpensesCategories();
         }
 
-        public void PrintCategory()
+        private void GetIncomeCategories()
         {
-            Categories.Clear();
-            var categories = categoryRepository.GetAllCategories();
+            IncomeCategories.Clear();
+            var categories = categoryRepository.GetIncomeCategories();
 
             foreach (var category in categories)
             {
-                Categories.Add(category);
+                IncomeCategories.Add(category);
             }
-
-            //var categories = categoryRepository.GetAllCategories();
-            //foreach (var category in categories)
-            //{
-            //    SharedData.AddItemToSharedCollection(category);
-            //}
         }
+
+        private void GetExpensesCategories()
+        {
+            ExpensesCategories.Clear();
+            var categories = categoryRepository.GetExpensesCategories();
+
+            foreach (var category in categories)
+            {
+                ExpensesCategories.Add(category);
+            }
+        }
+
     }
 }
