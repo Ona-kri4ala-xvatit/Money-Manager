@@ -5,6 +5,8 @@ using MvvmApp.Commands.Base;
 using MvvmApp.ViewModels.Base;
 using System.Collections.ObjectModel;
 using System;
+using Money_Manager.Repositories;
+using System.IO;
 
 namespace Money_Manager.ViewModels
 {
@@ -13,9 +15,10 @@ namespace Money_Manager.ViewModels
         private readonly IAccountRepository accountRepository;
         private readonly ICategoryRepository categoryRepository;
         private readonly ITransactionRepository transactionRepository;
+        private readonly TransactionDapperRepository transactionDapperRepository;
 
-        private SharedDataCategories sharedDataCategories;
-        private SharedDataAccounts sharedDataAccounts;
+        private readonly SharedDataCategories sharedDataCategories;
+        private readonly SharedDataAccounts sharedDataAccounts;
 
         #region Properties
         public ObservableCollection<Transaction> ExpensesTransactions { get; }
@@ -43,17 +46,22 @@ namespace Money_Manager.ViewModels
         public CommandBase? SaveExpensesCommand => this.saveExpensesCommand ??= new CommandBase(
             () =>
             {
-                transactionRepository.CreateTransaction(new Transaction()
+                if (SelectedAccount is not null && SelectedCategory is not null && Money != 0)
                 {
-                    Money = this.Money,
-                    Date = this.Date.Date,
-                    TransactionType = TransactionType.Expenses,
-                    AccountId = SelectedAccount.Id,
-                    CategoryId = SelectedCategory.Id
-                });
-                GetExpensesTransactions();
-                accountRepository.UpdateAccountBalance(SelectedAccount.Id, this.Money, TransactionType.Expenses);
-                this.Money = 0;
+                    transactionRepository.CreateTransaction(new Transaction()
+                    {
+                        Money = this.Money,
+                        Date = this.Date.Date,
+                        TransactionType = TransactionType.Expenses,
+                        AccountId = SelectedAccount.Id,
+                        CategoryId = SelectedCategory.Id
+                    });
+                    GetExpensesTransactions();
+                    accountRepository.UpdateAccountBalance(SelectedAccount.Id, this.Money, TransactionType.Expenses);
+                    this.Money = 0;
+                    SelectedAccount = null;
+                    SelectedCategory = null;
+                }
             },
             () => true);
 
@@ -63,18 +71,29 @@ namespace Money_Manager.ViewModels
             {
                 if (SelectedExpensesTransaction is not null)
                 {
+                    accountRepository.UpdateAccountAfterDeleteTransaction(SelectedExpensesTransaction.AccountId, SelectedExpensesTransaction.Money);
                     transactionRepository.DeleteTransaction(SelectedExpensesTransaction.Id);
+                    GetExpensesTransactions();
                 }
-                GetExpensesTransactions();
+            },
+            () => true);
+
+        private CommandBase? saveToFileIncomeCommand;
+        public CommandBase? SaveToFileIncomeCommand => this.saveToFileIncomeCommand ??= new CommandBase(
+            () =>
+            {
+                this.SaveTransactions();
             },
             () => true);
         #endregion
 
-        public ExpensesViewModel(IAccountRepository accountRepository, ICategoryRepository categoryRepository, ITransactionRepository transactionRepository, SharedDataCategories sharedDataCategories, SharedDataAccounts sharedDataAccounts)
+        public ExpensesViewModel(IAccountRepository accountRepository, ICategoryRepository categoryRepository, ITransactionRepository transactionRepository, 
+            SharedDataCategories sharedDataCategories, SharedDataAccounts sharedDataAccounts, TransactionDapperRepository transactionDapperRepository)
         {
             this.accountRepository = accountRepository;
             this.categoryRepository = categoryRepository;
             this.transactionRepository = transactionRepository;
+            this.transactionDapperRepository = transactionDapperRepository;
 
             this.sharedDataAccounts = sharedDataAccounts;
             this.sharedDataCategories = sharedDataCategories;
@@ -119,6 +138,14 @@ namespace Money_Manager.ViewModels
             {
                 ExpensesTransactions.Add(transaction);
             }
+        }
+
+        private void SaveTransactions()
+        {
+            var result = transactionDapperRepository.GetAllTransactionsToSave();
+
+            var filecontents = string.Join(Environment.NewLine, result);
+            File.WriteAllText("Transaction.txt", filecontents);
         }
 
     }

@@ -64,7 +64,7 @@
                 <TextBox Margin="10 0 0 0" Foreground="#443f5e" Background="Transparent"
                              FontSize="20" MaxLength="20" VerticalAlignment="Bottom"  Cursor="IBeam" Width="250">
                     <TextBox.Text>
-                        <Binding Path="Balance"/>
+                        <Binding Path="Balance" StringFormat="{}{0:#.##}"/>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>

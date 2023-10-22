@@ -9,7 +9,13 @@ namespace Money_Manager.Repositories
     public class TransactionEFRepository : ITransactionRepository
     {
         private readonly MoneyManagerDbContext dbContext;
-        public TransactionEFRepository(MoneyManagerDbContext moneyManagerDbContext) => this.dbContext = moneyManagerDbContext;
+        public TransactionEFRepository(MoneyManagerDbContext moneyManagerDbContext)
+        {
+            if (dbContext is null)
+                this.dbContext = new MoneyManagerDbContext();
+            else
+                dbContext = moneyManagerDbContext;
+        }
 
         public void CreateTransaction(Transaction transaction)
         {
@@ -36,7 +42,6 @@ namespace Money_Manager.Repositories
         public IEnumerable<Transaction> GetExpensesTransactions()
         {
             return dbContext.Transactions.Where(i => i.TransactionType == Services.TransactionType.Expenses);
-
         }
     }
 }

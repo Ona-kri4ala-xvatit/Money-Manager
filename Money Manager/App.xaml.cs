@@ -43,6 +43,8 @@ namespace Money_Manager
             Container.RegisterSingleton<ICategoryRepository, CategoryEFRepository>();
             Container.RegisterSingleton<ITransactionRepository, TransactionEFRepository>();
 
+            Container.RegisterSingleton<TransactionDapperRepository>();
+
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<OverviewViewModel>();
             Container.RegisterSingleton<IncomeViewModel>();

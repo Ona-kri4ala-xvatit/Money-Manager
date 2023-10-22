@@ -3,10 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Money_Manager.Views"
+             xmlns:local="clr-namespace:Money_Manager.ViewModels" 
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-       
+        <Border VerticalAlignment="Stretch" Margin="10 30 10 10" Background="#cae9ff" CornerRadius="10"
+        BorderThickness="1" BorderBrush="#a2d2ff">
+            <TextBlock Text="Hello, Friend! " Margin="0 3 0 3" Style="{StaticResource titleText}" HorizontalAlignment="Center" FontSize="20">
+                <icon:PackIconMaterial Width="32" Height="32" Kind="Beach" Foreground="#443f5e"/>
+            </TextBlock>
+        </Border>
     </Grid>
 </UserControl>

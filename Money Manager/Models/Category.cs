@@ -12,22 +12,5 @@ namespace Money_Manager.Models
         public IList<Transaction> Transaction { get; set; }
 
         public Category() { }
-        //public Category(string name, TransactionType type, string icon)
-        //{
-        //    this.CategoryName = name;
-        //    this.TransactionType = type;
-        //    this.Icon = icon;
-        //}
-
-        //public Category(string name, string icon)
-        //{
-        //    this.CategoryName = name;
-        //    this.Icon = icon;
-        //}
-
-        //public Category(TransactionType type)
-        //{
-        //    this.TransactionType = type;
-        //}
     }
 }

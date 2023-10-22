@@ -10,7 +10,7 @@ namespace Money_Manager.ViewModels
     public class AccountsViewModel : ViewModelBase
     {
         private readonly IAccountRepository accountRepository;
-        private SharedDataAccounts sharedDataAccounts; 
+        private readonly SharedDataAccounts sharedDataAccounts;
         public static ObservableCollection<string> Icons { get; set; } = new ObservableCollection<string>()
         {
              "Cash","Wallet","Bank","PiggyBankOutline","CreditCardOutline","CurrencyEur","WalletGiftcard","CurrencyUsd","CurrencyGbp"
@@ -88,7 +88,7 @@ namespace Money_Manager.ViewModels
         public AccountsViewModel(IAccountRepository repository, SharedDataAccounts sharedDataAccounts)
         {
             this.sharedDataAccounts = sharedDataAccounts;
-            Accounts = sharedDataAccounts.Accounts;
+            this.Accounts = sharedDataAccounts.Accounts;
 
             this.accountRepository = repository;
             GetAccounts();

@@ -30,7 +30,7 @@
                     <DataTemplate>
                         <Border Background="#443f5e" CornerRadius="15" Height="50">
                             <DockPanel>
-                                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 0 0 0" VerticalAlignment="Center" Text="{Binding Date, StringFormat={}{0:dd MMMM/yyyy}}" Foreground="AliceBlue"/>
+                                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 0 0 0" VerticalAlignment="Center" Text="{Binding Date, StringFormat={}{0:dd MMMM yyyy}}" Foreground="AliceBlue"/>
                                 <TextBlock FontSize="14" FontWeight="Heavy" VerticalAlignment="Center" HorizontalAlignment="Right" Text="{Binding Money}" Margin="0 0 5 0" Foreground="AliceBlue"/>
                             </DockPanel>
                         </Border>
@@ -97,6 +97,13 @@
                     <StackPanel Orientation="Horizontal">
                         <icon:PackIconMaterial Kind="Minus" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Delete expenses" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20 0 0" Style="{StaticResource menuButton}" Command="{Binding SaveToFileIncomeCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="File" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Save To File" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
                 </Button>
             </StackPanel>

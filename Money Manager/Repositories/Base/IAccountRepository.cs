@@ -11,5 +11,6 @@ namespace Money_Manager.Repositories.Base
         public void CreateAccount(Account account);
         public void DeleteAccount(int accountId);
         public void UpdateAccountBalance(int id, decimal money, TransactionType transactionType);
+        public void UpdateAccountAfterDeleteTransaction(int id, decimal money);
     }
 }

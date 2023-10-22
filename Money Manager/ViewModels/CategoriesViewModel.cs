@@ -10,7 +10,7 @@ namespace Money_Manager.ViewModels
     public class CategoriesViewModel : ViewModelBase
     {
         private readonly ICategoryRepository categoryRepository;
-        private SharedDataCategories sharedDataCategories;
+        private readonly SharedDataCategories sharedDataCategories;
 
         public static ObservableCollection<string> Icons { get; set; } = new ObservableCollection<string>()
         {
@@ -26,7 +26,6 @@ namespace Money_Manager.ViewModels
         #region Properties
         public ObservableCollection<Category> IncomeCategories { get; }
         public ObservableCollection<Category> ExpensesCategories { get; }
-        //public ObservableCollection<Category> Categories { get; }
 
         private Category? selectedCategory;
         public Category? SelectedCategory { get => selectedCategory; set => base.PropertyChangeMethod(out selectedCategory, value); }

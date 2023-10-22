@@ -59,5 +59,20 @@ namespace Money_Manager.Repositories
                 }
             }
         }
+
+        public void UpdateAccountAfterDeleteTransaction(int id, decimal money)
+        {
+            var account = dbContext.Accounts.FirstOrDefault(a => a.Id == id);
+            //if (account is null)
+            //{
+                
+            //}
+
+            if (account is not null)
+            {
+                account.Balance -= money;
+                dbContext.SaveChanges();
+            }
+        }
     }
 }

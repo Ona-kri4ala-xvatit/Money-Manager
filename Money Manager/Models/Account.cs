@@ -12,29 +12,6 @@ namespace Money_Manager.Models
         public IList<Transaction> Transaction { get; set; }
         public Account() { }
 
-        //public Account(int id, string? name, decimal balance, string? icon)
-        //{
-        //    this.Id = id;
-        //    this.AccountName = name;
-        //    this.Balance = balance;
-        //    this.Icon = icon;
-        //}
-
-        //public Account(string? name, decimal balance, string? icon)
-        //{
-        //    this.AccountName = name;
-        //    this.Balance = balance;
-        //    this.Icon = icon;
-        //}
-
-        //public Account(string name, decimal balance, string icon, string currency)
-        //{
-        //    this.AccountName = name;
-        //    this.Balance = balance;
-        //    this.Icon = icon;
-        //    this.Currency = currency;
-        //}
-
         public override string ToString()
         {
             return $"{AccountName}";

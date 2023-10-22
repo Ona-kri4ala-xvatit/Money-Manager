@@ -4,5 +4,7 @@ namespace Money_Manager.ViewModels
 {
     public class OverviewViewModel : ViewModelBase
     {
+      
+
     }
 }

@@ -19,26 +19,11 @@ namespace Money_Manager.Models
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
 
-
         public Transaction() { }
 
-        //public Transaction(decimal money, DateTime date, Account? account, Category? category, TransactionType type)
-        //{
-        //    this.Money = money;
-        //    this.Date = date;
-        //    this.Account = account;
-        //    this.Category = category;
-        //    this.TransactionType = type;
-        //}
-
-        //public Transaction(decimal money, DateTime date, Account? account, Category? category)
-        //{
-        //    this.Money = money;
-        //    this.Date = date;
-        //    this.Account = account;
-        //    this.Category = category;
-        //}
-
-
+        public override string ToString()
+        {
+            return $"{TransactionType} Date: {Date.ToLongDateString()}; Money: {Money}";
+        }
     }
 }
